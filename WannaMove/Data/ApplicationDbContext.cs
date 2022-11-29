@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using WannaMove.Models;
 
 namespace WannaMove.Data
 {
@@ -11,6 +12,9 @@ namespace WannaMove.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
+        
+        public DbSet<UaScoresDataFrame> UaScoresDataFrame { get; set; }
     }
 }

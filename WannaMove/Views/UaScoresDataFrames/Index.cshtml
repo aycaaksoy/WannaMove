@@ -1,0 +1,144 @@
+﻿@model IEnumerable<WannaMove.Models.UaScoresDataFrame>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CityName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Continent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Housing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostofLiving)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Startups)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelConnectivity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Commute)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessFreedom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Safety)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Healthcare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Education)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnvironmentalQuality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Economy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InternetAccess)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeisureCulture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tolerance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Outdoors)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Continent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Housing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostofLiving)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Startups)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelConnectivity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Commute)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessFreedom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Safety)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Healthcare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Education)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnvironmentalQuality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Economy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Taxation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InternetAccess)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeisureCulture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tolerance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Outdoors)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CityId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CityId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CityId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,124 @@
+﻿@model WannaMove.Models.UaScoresDataFrame
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>UaScoresDataFrame</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CityId" />
+            <div class="form-group">
+                <label asp-for="CityName" class="control-label"></label>
+                <input asp-for="CityName" class="form-control" />
+                <span asp-validation-for="CityName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Continent" class="control-label"></label>
+                <input asp-for="Continent" class="form-control" />
+                <span asp-validation-for="Continent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Housing" class="control-label"></label>
+                <input asp-for="Housing" class="form-control" />
+                <span asp-validation-for="Housing" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CostofLiving" class="control-label"></label>
+                <input asp-for="CostofLiving" class="form-control" />
+                <span asp-validation-for="CostofLiving" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Startups" class="control-label"></label>
+                <input asp-for="Startups" class="form-control" />
+                <span asp-validation-for="Startups" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelConnectivity" class="control-label"></label>
+                <input asp-for="TravelConnectivity" class="form-control" />
+                <span asp-validation-for="TravelConnectivity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commute" class="control-label"></label>
+                <input asp-for="Commute" class="form-control" />
+                <span asp-validation-for="Commute" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusinessFreedom" class="control-label"></label>
+                <input asp-for="BusinessFreedom" class="form-control" />
+                <span asp-validation-for="BusinessFreedom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Safety" class="control-label"></label>
+                <input asp-for="Safety" class="form-control" />
+                <span asp-validation-for="Safety" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Healthcare" class="control-label"></label>
+                <input asp-for="Healthcare" class="form-control" />
+                <span asp-validation-for="Healthcare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Education" class="control-label"></label>
+                <input asp-for="Education" class="form-control" />
+                <span asp-validation-for="Education" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EnvironmentalQuality" class="control-label"></label>
+                <input asp-for="EnvironmentalQuality" class="form-control" />
+                <span asp-validation-for="EnvironmentalQuality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Economy" class="control-label"></label>
+                <input asp-for="Economy" class="form-control" />
+                <span asp-validation-for="Economy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Taxation" class="control-label"></label>
+                <input asp-for="Taxation" class="form-control" />
+                <span asp-validation-for="Taxation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InternetAccess" class="control-label"></label>
+                <input asp-for="InternetAccess" class="form-control" />
+                <span asp-validation-for="InternetAccess" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeisureCulture" class="control-label"></label>
+                <input asp-for="LeisureCulture" class="form-control" />
+                <span asp-validation-for="LeisureCulture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tolerance" class="control-label"></label>
+                <input asp-for="Tolerance" class="form-control" />
+                <span asp-validation-for="Tolerance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Outdoors" class="control-label"></label>
+                <input asp-for="Outdoors" class="form-control" />
+                <span asp-validation-for="Outdoors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

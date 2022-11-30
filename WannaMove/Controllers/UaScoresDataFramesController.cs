@@ -19,27 +19,20 @@ namespace WannaMove.Controllers
             _context = context;
         }
 
-        // create list method for dropdown
-        public List<UaScoresDataFrame> GetDataByContinent()
-        {
-            using(var context = _context)
-            {
-                var values = _context.UaScoresDataFrame.Include(x => x.Continent).ToList();
-                return values;
-            }
-        }
-
         [HttpGet]
         public IActionResult FilterByContinent()
         {
-            List<SelectListItem> cont = (from x in _context.UaScoresDataFrame.ToList()
-                                                   select new SelectListItem
-                                                   {
-                                                       Text = x.Continent,
-                                                       Value = x.CityId.ToString()
-                                                   }).ToList();
-            ViewBag.v = cont;
-            return View();
+            List<ContinentModel> cont = new List<ContinentModel>();
+            cont.Add(new ContinentModel("Europe", isActive: false));
+            cont.Add(new ContinentModel("North America", isActive: false));
+            cont.Add(new ContinentModel("South America", isActive: false));
+            cont.Add(new ContinentModel("Africa", isActive: false));
+            cont.Add(new ContinentModel("Asia", isActive: false));
+            cont.Add(new ContinentModel("Oceania", isActive: false));
+            ViewData["Continents"] = cont;
+
+            var data = _context.UaScoresDataFrame.ToList();
+            return View(data);
         }
 
         // GET: UaScoresDataFrames
@@ -73,8 +66,7 @@ namespace WannaMove.Controllers
         }
 
         // POST: UaScoresDataFrames/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CityId,CityName,Country,Housing,CostofLiving,Startups,TravelConnectivity,Commute,BusinessFreedom,Safety,Healthcare,Education,EnvironmentalQuality,Economy,Taxation,InternetAccess,LeisureCulture,Tolerance,Outdoors")] UaScoresDataFrame uaScoresDataFrame)
@@ -105,8 +97,7 @@ namespace WannaMove.Controllers
         }
 
         // POST: UaScoresDataFrames/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CityId,CityName,Country,Housing,CostofLiving,Startups,TravelConnectivity,Commute,BusinessFreedom,Safety,Healthcare,Education,EnvironmentalQuality,Economy,Taxation,InternetAccess,LeisureCulture,Tolerance,Outdoors")] UaScoresDataFrame uaScoresDataFrame)

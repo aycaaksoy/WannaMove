@@ -1,43 +1,47 @@
-﻿@model UaScoresDataFrame
+﻿@model IEnumerable<UaScoresDataFrame>
 
-@{
-    ViewData["Title"] = "Index";
+
+@foreach (var item in (IEnumerable<ContinentModel>)ViewData["Continents"])
+{
+    <div>
+        @Html.CheckBox( item.continent, item.IsActive)
+        @item.continent
+    </div>
 }
 
-
-<p>
-    <a asp-action="FilterByContinent">Filter by continent</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CityName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Country)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Continent)
-            </th>
-            
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @*@foreach (var item in Model.)
-        {
+<form asp-controller="FilterByContinent" asp-action ="Index">
+    <table class="table" >
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CityName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Country)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Continent)
-                </td>                
+                <th>
+                    @Html.DisplayNameFor(model => model.CityName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Continent)
+                </th>
+
+                <th></th>
             </tr>
-        }*@
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CityName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Continent)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+</form>

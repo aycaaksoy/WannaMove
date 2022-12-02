@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WannaMove.Models
 {
@@ -48,5 +49,31 @@ namespace WannaMove.Models
         {
 
         }
+
+        public UaScoresDataFrame(int cityId, string cityName, string country, string continent, decimal housing, decimal costofLiving, decimal startups, decimal travelConnectivity, decimal commute, decimal businessFreedom, decimal safety, decimal healthcare, decimal education, decimal environmentalQuality, decimal economy, decimal taxation, decimal internetAccess, decimal leisureCulture, decimal tolerance, decimal outdoors)
+        {
+            CityId = cityId;
+            CityName = cityName;
+            Country = country;
+            Continent = continent;
+            Housing = housing;
+            CostofLiving = costofLiving;
+            Startups = startups;
+            TravelConnectivity = travelConnectivity;
+            Commute = commute;
+            BusinessFreedom = businessFreedom;
+            Safety = safety;
+            Healthcare = healthcare;
+            Education = education;
+            EnvironmentalQuality = environmentalQuality;
+            Economy = economy;
+            Taxation = taxation;
+            InternetAccess = internetAccess;
+            LeisureCulture = leisureCulture;
+            Tolerance = tolerance;
+            Outdoors = outdoors;
+        }
+
+        
     }
 }

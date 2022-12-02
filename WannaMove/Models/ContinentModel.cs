@@ -2,13 +2,13 @@
 {
     public class ContinentModel
     {
-        public ContinentModel(string continent, bool isActive)
+        public ContinentModel(string Continent, bool isActive)
         {
-            this.continent = continent;
+            this.Continent = Continent;
             this.IsActive = isActive;
         }
 
-        public string continent { get; set; }    
+        public string Continent { get; set; }    
         public bool IsActive { get; set; }  
     }
 

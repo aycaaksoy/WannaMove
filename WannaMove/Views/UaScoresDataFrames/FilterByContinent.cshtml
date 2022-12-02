@@ -1,47 +1,108 @@
 ﻿@model IEnumerable<UaScoresDataFrame>
 
 
-@foreach (var item in (IEnumerable<ContinentModel>)ViewData["Continents"])
-{
-    <div>
-        @Html.CheckBox( item.continent, item.IsActive)
-        @item.continent
+<form method="get">
+    <div id="filter-input-wrapper">
+        <input type="checkbox" id="check_all_1" name="check_all_1" title="Select All" checked="checked" onchange="populateCards()" />
+        <label for="check_all_1">Select All </label>
+
+        @foreach (var item in (IEnumerable<ContinentModel>)ViewData["Continents"])
+        {
+
+            <input type="checkbox" id=@item.Continent name=item-@item.Continent value=@item.Continent onchange="populateCards()">
+            <label for=@item.Continent> @item.Continent </label>
+
+        }
     </div>
-}
-
-<form asp-controller="FilterByContinent" asp-action ="Index">
-    <table class="table" >
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.CityName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Country)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Continent)
-                </th>
-
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div id="wrapper"> <!-- Filtered data will be shown here --></div>
+    <div class="container-sm" id="data">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CityName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Country)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Continent)
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CityName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Country)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Continent)
+                    </th>
+
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-    
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CityName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Country)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Continent)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
 </form>
+
+
+<!-- Filter functions written here! -->
+<script type="text/javascript">
+    const data = [{
+        title: 'Name'', classes: ['category1','category2']}]
+        const checkboxes = document.querySelectorAll("input[type='checkbox']");
+        const cardContainer = document.getElementById("wrapper");
+        var checkboxValues = [];
+
+        function populateCards() {
+        var time = 100;
+
+        data.forEach((obj) => {
+            var card = `
+                         <div data-aos="fade-up" data-aos-duration=${time} class="card"><h1 class="title">${obj.title}</h1></div>
+                            `;
+            time += 50;
+            wrapper.innerHTML += card;
+        });
+    }
+        populateCards()
+        checkboxes.forEach((box) => {
+        box.checked = false;
+        box.addEventListener("change", () => filterCards());
+    });
+    function grabCheckboxValues() {
+        var checkboxValues = [];
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) checkboxValues.push(checkbox.value);
+        });
+        return checkboxValues;
+    }
+
+    function filterCards() {
+        wrapper.innerHTML = "";
+        checkboxValues = grabCheckboxValues();
+        data.forEach((item) => {
+            let classes = item.classes;
+            let result = (arr, target) => target.every((v) => arr.includes(v));
+            let isMatch = result(classes, checkboxValues);
+            if (isMatch) {
+                var card = `
+                        <div data-aos="flip-down" data-aos-duration=500 class="card" style="padding:10px; min-width:400px;  background-color:#CCC; margin:10px;">
+                        <h1 class="title">${item.title}</h1>
+                        </div>
+                    `;
+                wrapper.innerHTML += card;
+            }
+        });
+    }
+
+
+</script>

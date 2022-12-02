@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -22,22 +23,44 @@ namespace WannaMove.Controllers
         [HttpGet]
         public IActionResult FilterByContinent()
         {
+            var c = _context.UaScoresDataFrame.ToList();
             List<ContinentModel> cont = new List<ContinentModel>();
-            cont.Add(new ContinentModel("Europe", isActive: false));
-            cont.Add(new ContinentModel("North America", isActive: false));
-            cont.Add(new ContinentModel("South America", isActive: false));
-            cont.Add(new ContinentModel("Africa", isActive: false));
-            cont.Add(new ContinentModel("Asia", isActive: false));
-            cont.Add(new ContinentModel("Oceania", isActive: false));
-            ViewData["Continents"] = cont;
+            cont.Add(new ContinentModel("All", isActive: true));
+            //cont.Add(new ContinentModel("Europe", isActive: false));
+            //cont.Add(new ContinentModel("North America", isActive: false));
+            //cont.Add(new ContinentModel("South America", isActive: false));
+            //cont.Add(new ContinentModel("Africa", isActive: false));
+            //cont.Add(new ContinentModel("Asia", isActive: false));
+            //cont.Add(new ContinentModel("Oceania", isActive: false));
+
+            foreach (var item in c)
+            {
+                if (!item.Continent.Equals(cont.ToList()))
+                {
+                    cont.Add(new ContinentModel(item.Continent, isActive: false));
+                }
+               
+            }
+            var withoutDuplicates = cont.GroupBy(x => x.Continent).Select(x => x.First()).ToList();
+            ViewData["Continents"] = withoutDuplicates;
 
             var data = _context.UaScoresDataFrame.ToList();
+            
             return View(data);
-        }
+            }
 
         // GET: UaScoresDataFrames
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string continentNames)
         {
+            
+           //UserDataViewModel userDataViewModel = new UserDataViewModel();
+       
+            
+            //var countries = from Country in _context.UaScoresDataFrame
+            //              where continentNames.Contains(userDataModel.Continent)
+            //              select Country;
+            
+            
             return View(await _context.UaScoresDataFrame.ToListAsync());
         }
 

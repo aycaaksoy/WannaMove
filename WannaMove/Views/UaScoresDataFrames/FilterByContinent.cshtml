@@ -1,21 +1,23 @@
 ﻿@model IEnumerable<UaScoresDataFrame>
 
-
-<form method="get">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<form asp-action="FilterByContinent" method="get">
+    <div class="form-actions no-color">
+        
+    </div>
     <div id="filter-input-wrapper">
-        <input type="checkbox" id="check_all_1" name="check_all_1" title="Select All" checked="checked" onchange="populateCards()" />
-        <label for="check_all_1">Select All </label>
+        <input type="checkbox" id=all name=item-all value=@ViewData["CurrentFilter"] checked="checked" onclick="createContList()" />
+        <label for=all>All </label>
 
         @foreach (var item in (IEnumerable<ContinentModel>)ViewData["Continents"])
         {
-
-            <input type="checkbox" id=@item.Continent name=item-@item.Continent value=@item.Continent onchange="populateCards()">
+            <input type="checkbox" id=@item.Continent name=item-@item.Continent value=@ViewData["CurrentFilter"] onclick="createContList()" />
             <label for=@item.Continent> @item.Continent </label>
-
         }
+        
     </div>
-    <div id="wrapper"> <!-- Filtered data will be shown here --></div>
-    <div class="container-sm" id="data">
+    
+    <div class="container-sm">
         <table class="table">
             <thead>
                 <tr>
@@ -28,11 +30,11 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Continent)
                     </th>
-
                     <th></th>
                 </tr>
             </thead>
             <tbody>
+
                 @foreach (var item in Model)
                 {
                     <tr>
@@ -53,56 +55,34 @@
     </div>
 </form>
 
-
 <!-- Filter functions written here! -->
-<script type="text/javascript">
-    const data = [{
-        title: 'Name'', classes: ['category1','category2']}]
-        const checkboxes = document.querySelectorAll("input[type='checkbox']");
-        const cardContainer = document.getElementById("wrapper");
-        var checkboxValues = [];
+<script>
 
-        function populateCards() {
-        var time = 100;
-
-        data.forEach((obj) => {
-            var card = `
-                         <div data-aos="fade-up" data-aos-duration=${time} class="card"><h1 class="title">${obj.title}</h1></div>
-                            `;
-            time += 50;
-            wrapper.innerHTML += card;
-        });
+    const itemAll = document.querySelector(".item-all");
+    function createContList() {
+        console.log("hellooo ")
     }
-        populateCards()
-        checkboxes.forEach((box) => {
-        box.checked = false;
-        box.addEventListener("change", () => filterCards());
-    });
-    function grabCheckboxValues() {
-        var checkboxValues = [];
-        checkboxes.forEach((checkbox) => {
-            if (checkbox.checked) checkboxValues.push(checkbox.value);
-        });
-        return checkboxValues;
-    }
+    $("#itemid").click(function () {
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "get",
+            url: "/Admin/AdminCustomer/CustomerList/",
+            success: function (funk1) {
+                let values = jQuery.parseJSON(funk1);
+                console.log(values);
 
-    function filterCards() {
-        wrapper.innerHTML = "";
-        checkboxValues = grabCheckboxValues();
-        data.forEach((item) => {
-            let classes = item.classes;
-            let result = (arr, target) => target.every((v) => arr.includes(v));
-            let isMatch = result(classes, checkboxValues);
-            if (isMatch) {
-                var card = `
-                        <div data-aos="flip-down" data-aos-duration=500 class="card" style="padding:10px; min-width:400px;  background-color:#CCC; margin:10px;">
-                        <h1 class="title">${item.title}</h1>
-                        </div>
-                    `;
-                wrapper.innerHTML += card;
+
+                let tablehtml = "<table class= table table-bordered><tr><th>Customer ID</th></table>"
+                $.each(values, (index, item) => {
+                    tablehtml += `<tr><td>${item.CustomerID}</td>`
+                });
+
+                tablehtml += "</table>";
+                $("#customerlist").html(tablehtml);
             }
         });
-    }
-
-
+    });
+   
 </script>
+

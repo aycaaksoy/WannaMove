@@ -59,7 +59,7 @@ namespace WannaMove.Controllers
 
         }
 
-        public IActionResult GetMessage()
+        public IActionResult GetData()
         {
             //string message = "Hello there, you're doing fine";
             var jsonCont = JsonConvert.SerializeObject(_context.UaScoresDataFrame.ToList());

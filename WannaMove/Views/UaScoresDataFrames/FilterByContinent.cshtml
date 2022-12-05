@@ -2,21 +2,20 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <form asp-action="FilterByContinent" method="get">
-    <div class="form-actions no-color">
-        
-    </div>
+    
     <div id="filter-input-wrapper">
-        <input type="checkbox" id=all name=item-all value=@ViewData["CurrentFilter"] checked="checked" onclick="createContList()" />
+        <input type="checkbox" id=all name=item-all value=@ViewData["CurrentFilter"] checked="checked" onclick="#" />
         <label for=all>All </label>
 
         @foreach (var item in (IEnumerable<ContinentModel>)ViewData["Continents"])
         {
             <input type="checkbox" id=@item.Continent name=item-@item.Continent value=@ViewData["CurrentFilter"] onclick="createContList()" />
             <label for=@item.Continent> @item.Continent </label>
-        }
-        
+        } 
+
+        <input type="button" id="test"    onclick="GetMessage()" value="Get Message" />
     </div>
-    
+
     <div class="container-sm">
         <table class="table">
             <thead>
@@ -51,7 +50,6 @@
                 }
             </tbody>
         </table>
-
     </div>
 </form>
 
@@ -62,6 +60,10 @@
     function createContList() {
         console.log("hellooo ")
     }
+
+    // write a function(continentList) which gets new data queried by continent 
+    // checkbox all will call this function directly, others will call createContlist
+    
     $("#itemid").click(function () {
         $.ajax({
             contentType: "application/json",
@@ -83,6 +85,32 @@
             }
         });
     });
-   
+    $("#test").click(function () {
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "get",
+            url: "/UaScoresDataFrames/GetMessage/",
+            success: function (funk1) {
+                let values = jQuery.parseJSON(funk1);
+                console.log(values);
+
+
+                let tablehtml = "<table class= table table-bordered><tr><th>All</th></table>"
+                $.each(values, (index, item) => {
+                    tablehtml += `<tr><td>${item.CityName}</td>`
+                });
+
+                tablehtml += "</table>";
+                $("#test").html(tablehtml);
+            }
+        });
+    });
+
+    function GetMessage(){
+        $.get("/UaScoresDataFrames/GetMessage", function (data){
+            $("p").html(data);
+        });
+    }
 </script>
 

@@ -7,6 +7,7 @@ using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using WannaMove.Data;
 using WannaMove.Models;
 
@@ -27,7 +28,7 @@ namespace WannaMove.Controllers
             var c = _context.UaScoresDataFrame.ToList();
             List<ContinentModel> cont = new List<ContinentModel>();
             //cont.Add(new ContinentModel("All", isActive: true));
-            
+           
 
             foreach (var item in c)
             {
@@ -57,6 +58,14 @@ namespace WannaMove.Controllers
             return View(await con.ToListAsync());
 
         }
+
+        public IActionResult GetMessage()
+        {
+            //string message = "Hello there, you're doing fine";
+            var jsonCont = JsonConvert.SerializeObject(_context.UaScoresDataFrame.ToList());
+            return Json(jsonCont);
+        }
+
 
         // GET: UaScoresDataFrames
         public async Task<IActionResult> Index()

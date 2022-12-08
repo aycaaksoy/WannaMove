@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using WannaMove.Data;
@@ -23,13 +24,11 @@ namespace WannaMove.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> FilterByContinent(string[] continentNames)
+        public IActionResult FilterByContinent()
         {
             var c = _context.UaScoresDataFrame.ToList();
             List<ContinentModel> cont = new List<ContinentModel>();
             //cont.Add(new ContinentModel("All", isActive: true));
-           
-
             foreach (var item in c)
             {
                 if (!item.Continent.Equals(cont.ToList()))
@@ -40,37 +39,79 @@ namespace WannaMove.Controllers
             }
             var withoutDuplicates = cont.GroupBy(x => x.Continent).Select(x => x.First()).ToList();
             ViewData["Continents"] = withoutDuplicates;
+            
+            return View("FilterByContinent");
 
-            //
-            ViewData["CurrentFilter"] = continentNames;
+        }       
 
-            var con = from co in _context.UaScoresDataFrame
-                    select co;
-
-            foreach (var item in continentNames)
-            {
-                if (!String.IsNullOrEmpty(item))
-                {
-                    con = con.Where(s => s.Continent.Contains(item));
-                }
-
-            }
-            return View(await con.ToListAsync());
-
-        }
-
-        public IActionResult GetData()
+        //continue from here!!
+        [HttpGet]
+        public IActionResult GetData(string continents)
         {
-            //string message = "Hello there, you're doing fine";
-            var jsonCont = JsonConvert.SerializeObject(_context.UaScoresDataFrame.ToList());
-            return Json(jsonCont);
+            
+            if(continents == null)
+            {
+                var jsonCont = JsonConvert.SerializeObject(_context.UaScoresDataFrame.ToList());
+                return Json(jsonCont);
+            }
+            if (continents != null)
+            {
+                
+                return View("Index");
+            }
+            else
+                return View("Index");
+            
         }
 
 
         // GET: UaScoresDataFrames
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder,  string currentFilter, string searchString, int? pageNumber)
         {
-            return View(await _context.UaScoresDataFrame.ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["ContinentSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc_continent" : "";
+            ViewData["CountrySortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc_country" : "";
+            ViewData["CitySortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc_city" : "";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+
+            ViewData["CurrentFilter"] = searchString;
+
+            var c = from x in _context.UaScoresDataFrame
+                    select x;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                c = c.Where(s => s.Country.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc_continent":
+                    c = c.OrderBy(x => x.Continent);
+                    break;
+                case "name_desc_country":
+                    c = c.OrderBy(x => x.Country);
+                    break;
+                case "name_desc_city":
+                    c = c.OrderBy(x => x.CityName);
+                    break;
+                default:
+                    c = c.OrderBy(x => x.CityName);
+                    break;
+            }
+
+            int pageSize = 10;
+
+            return View(await PaginatedList<UaScoresDataFrame>.CreateAsync(c.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: UaScoresDataFrames/Details/5

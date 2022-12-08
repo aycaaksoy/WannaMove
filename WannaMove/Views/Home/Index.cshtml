@@ -1,10 +1,24 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@{
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4">
+                <h2 data-aos="fade-up">Find the City of Your Dreams</h2>
+                <blockquote data-aos="fade-up" data-aos-delay="100">
+                    <p> Choose your priorities and get recommendations in only three steps </p>
+                </blockquote>
+                <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <a href="/UaScoresDataFrames/Index" class="btn-get-started">Get Started</a>
+                </div>
 
-
+            </div>
+        </div>
+    </div>
+</section><!-- End Hero Section -->

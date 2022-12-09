@@ -2,9 +2,9 @@
 
 namespace WannaMove.Controllers
 {
-    public class AboutController : Controller
+    public class TeamController : Controller
     {
-        public IActionResult AboutTeam()
+        public IActionResult Team()
         {
             return View();
         }

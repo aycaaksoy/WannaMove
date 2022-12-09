@@ -59,11 +59,11 @@
 
             <nav id="navbar" class="navbar" style="background-color: #1b2f45">
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="/Home/Index" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="portfolio.html">Cities</a></li>
-                    <li><a href="team.html">Team</a></li>
+                    <li><a href="/Team/Team">Team</a></li>
                     <li><a href="blog.html">Login</a></li>
                     <li><a href="blog.html">Register</a></li>
                 </ul>
@@ -71,6 +71,7 @@
 
         </div>
     </header><!-- End Header -->
+
     <!-- ======= Content Here  ======= -->
     <section id="filter-constraints" class="why-us">
         <div class="container" >
@@ -82,18 +83,20 @@
 
             <div class="row g-0">
                 <br />
-                <h2>Filter Cities</h2>
-                <div class="col-xl-5 img-bg" >
+                <br />
+                <h2 class="align-self-sm-auto">Filter Cities</h2>
+                <br />
+                <div class=" img-bg" >
                     <form asp-action="Index" method="get">
-                        <div class="form-actions no-color">
+                        <div class="form-actions">
                             <p>
-                                Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
-                                <input type="submit" value="Search" class="btn btn-default" /> |
-                                <a asp-action="Index">Back to Full List</a>
+                                Find by name: <input type="text" class="text-sm" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                                <input type="submit" value="Search" class="btn btn-sm" /> |
+                                <a asp-action="Index" class="btn btn-sm">Back to Full List</a>
                             </p>
                         </div>
                     </form>
-                    <table class="table">
+                    <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th>
@@ -130,22 +133,26 @@
                         var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
                         var nextDisabled = !Model.HasNextPage ? "disabled" : "";
                     }
-
-                    <a asp-action="Index"
-                       asp-route-sortOrder="@ViewData["CurrentSort"]"
-                       asp-route-pageNumber="@(Model.PageIndex - 1)"
-                       asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                       class="page-item @prevDisabled">
-                        Previous
-                    </a>
-                    <a asp-action="Index"
-                       asp-route-sortOrder="@ViewData["CurrentSort"]"
-                       asp-route-pageNumber="@(Model.PageIndex + 1)"
-                       asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                       class="page-item @nextDisabled">
-                       Next
-                    </a>
-                    <div class="tox-sidebar__pane-container"><button type="submit" class="btn btn-success" href="#"> Save And Continue </button></div>
+                    <div class="container col-auto">
+                        <a asp-action="Index"
+                           asp-route-sortOrder="@ViewData["CurrentSort"]"
+                           asp-route-pageNumber="@(Model.PageIndex - 1)"
+                           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                           class="page-item pagination-sm @prevDisabled">
+                            Previous
+                        </a>
+                        <a asp-action="Index"
+                           asp-route-sortOrder="@ViewData["CurrentSort"]"
+                           asp-route-pageNumber="@(Model.PageIndex + 1)"
+                           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                           class="page-item pagination-sm @nextDisabled">
+                            Next
+                        </a>
+                    </div>
+                    
+                    <div class="tox-sidebar__pane-container">
+                        <button type="submit" class="btn btn-info btn-sm" href="#"> Save And Continue </button>
+                        </div>
                     
                 </div> 
                 

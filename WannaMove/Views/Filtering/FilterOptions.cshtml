@@ -74,15 +74,24 @@
     <section id="filter-constraints" class="why-us">
         <div class="container">
 
-            <div class="section-header">
-                <!--  Search Box -->
-                <input type="text" id="le-Input-1" onkeyup="myFunction()" placeholder="Search for location.." title="Country" style=" display:inline">
+            <!--  Search Box -->
+            <br />
+            <br />
+            <div class="clearfix">
 
-                <!--  Info -->
-                <p><strong>Click the headers to sort the table.</strong></p>
+                <input type="text" class="text-sm" id="Input-1" onkeyup="myFunction()" placeholder="Search for location.." title="Country" style=" display:inline">
+                <button type="submit" class="btn btn-warning btn-sm float-right" href="#"> Save And Continue </button>
+
+            </div>
+            <br />
+            <!--  Info -->
+            <p><strong>Click the headers to sort the table. When you are done with your choices click "Save And Continue"</strong></p>
+
+            <div class="section-header">
+
 
                 <!--  Checkboxes -->
-                <table>
+                <table class="table table-striped table-sm">
                     <tr>
                         <td>
                             <input type='checkbox' onclick='return filter_type(this);' name='filter' id="Asia" value="Asia" />Asia
@@ -107,8 +116,8 @@
                 </table>
 
                 <!--  Table -->
-                <div style="overflow-x:auto; width:100%" class="tableContainer">
-                    <table id="le-Table-1" class="tbl">
+                <div style="overflow-x:auto; width:100%" id="scroller" class="row g-0">
+                    <table id="le-Table-1" class="table table-striped table-sm">
                         <!--  Table Header -->
                         <thead>
                             <tr class="header">
@@ -118,6 +127,7 @@
                                 <th onclick="sortTable(2)">City</th>
                             </tr>
                         </thead>
+
                         <!--  Table Body / Rows -->
                         <tbody>
                             @foreach (var item in Model)
@@ -137,10 +147,13 @@
                             }
                         </tbody>
                     </table>
+                    
+
+
                 </div>
 
             </div>
-            
+
         </div>
     </section>
 </body>
@@ -213,15 +226,15 @@
             var firstCol = rows[i].cells[0].textContent.toUpperCase();
             var secondCol = rows[i].cells[1].textContent.toUpperCase();
             var thirdCol = rows[i].cells[2].textContent.toUpperCase();
-            
-            if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1 || thirdCol.indexOf(filter) > -1 ) {
+
+            if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1 || thirdCol.indexOf(filter) > -1) {
                 rows[i].style.display = "";
             } else {
                 rows[i].style.display = "none";
             }
         }
     }
-    document.querySelector('#le-Input-1').addEventListener('keyup', filterTable, false);
+    document.querySelector('#Input-1').addEventListener('keyup', filterTable, false);
 
     function content(elem) {
     }
@@ -273,6 +286,8 @@
         });
     });
 
+    /* fixed header table*/
+    
 
 </script>
 

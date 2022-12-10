@@ -39,8 +39,13 @@ namespace WannaMove.Controllers
             }
             var withoutDuplicates = cont.GroupBy(x => x.Continent).Select(x => x.First()).ToList();
             ViewData["Continents"] = withoutDuplicates;
-            
+
+            var filters = Request.Query["filter"];
+            var data = _context.UaScoresDataFrame.Where(x => filters.Contains(x.Continent));
+
             return View("FilterByContinent");
+
+
 
         }       
 

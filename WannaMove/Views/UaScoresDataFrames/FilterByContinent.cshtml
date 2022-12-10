@@ -4,17 +4,17 @@
  }
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<form id="data-form">
+<form method="get" >
     <div id="form-check">
 
         <label class="form-check-inline">
-            <input type="checkbox" id="all-continent" name="options[]" value="something"> All
+            <input type="checkbox" id="all-continent" name="filter[]" value="something"> All
         </label>
 
         <label class="form-check-inline">
             @foreach (var item in (IEnumerable<ContinentModel>)ViewData["Continents"])
             {
-                <input type="checkbox" class="form-check-input" id="@item-Continent" name="options[]" value="@item.Continent" />
+                <input type="checkbox" class="form-check-input" id="@item-Continent" name="filter[]" value="@item.Continent" />
 
                 @item.Continent
             }

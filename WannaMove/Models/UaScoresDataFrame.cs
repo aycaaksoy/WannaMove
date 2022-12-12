@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using WannaMove.Data;
 
 namespace WannaMove.Models
 {
@@ -74,6 +75,14 @@ namespace WannaMove.Models
             Outdoors = outdoors;
         }
 
-        
+        internal static void Insert(UaScoresDataFrame uaScoresDataFrame)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                context.Add(uaScoresDataFrame);
+                context.SaveChanges();
+
+            };
+        }
     }
 }

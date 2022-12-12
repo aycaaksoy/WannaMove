@@ -24,10 +24,16 @@ namespace WannaMove.Controllers
             return View(c);  
         }
 
-       
-        
+        public IActionResult Test()
+        {
+            var c = _context.UaScoresDataFrame.ToList();
+            return View(c);
+        }
 
-       
+
+
+
+
 
 
     }

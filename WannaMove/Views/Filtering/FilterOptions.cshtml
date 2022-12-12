@@ -125,7 +125,7 @@
                 </table>
                 <!--  Table -->
 
-                <form method="post">
+                
                     <div style="overflow-x:auto; width:100%" id="scroller" class="row g-0">
                         <table id="le-Table-1" class="table table-striped table-sm">
                             <!--  Table Header -->
@@ -243,8 +243,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <button type="button" id="btn-save">Save</button>
-                </form>
+                    <button type="button" class="btn-save">Save</button>
+                
             </div>
         </div>
     </section>
@@ -298,14 +298,31 @@
     $(document).ready(function () {
 
         //Variables
+        var a1 = $(".a1")
+        var a2 = $(".a2")
+        var a3 = $(".a3")
+        var a4 = $(".a4")
+        var a5 = $(".a5")
+        var a6 = $(".a6")
         var val = $(".val");
         var crt = $(".create");
         var getc = $(".get");
         var delc = $(".delete");
+        var btn-save = $(".btn-save");
 
         //Cookie code (cookie monster says yum! (parody))
 
         //Create cookie
+        btn-save.click(function () {
+            if (a1.checked == true) {
+                Cookies.set("asia-cookie", val.val());
+            } else {
+                break;
+            }
+        });
+
+       
+
         crt.click(function () {
 
             Cookies.set("first-cookie", val.val());

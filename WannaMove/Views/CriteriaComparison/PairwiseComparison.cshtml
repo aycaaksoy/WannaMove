@@ -8,7 +8,7 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="///ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></script>
-<link rel="stylesheet" href="~/SliderStyleSheet.css">
+<link rel="stylesheet" href="~/css/StyleSheetPair.css">
 
 
 <!doctype html>
@@ -20,19 +20,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="tick.css">
-    <link rel="stylesheet" href="style.css">
+    
+    
 
-
-    <!-- Double slider-->
-    <link rel="stylesheet" href="doubleslider.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Checkbox dropdown-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
-    <link rel="stylesheet" href="style_dropdown2.css">
+    
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -57,7 +53,10 @@
         console.log(x);
 
         let textArea = document.getElementById("display");
-
+        let s11 = document.getElementById("1.1");
+        s11.innerHTML = x[0];
+        let s12 = document.getElementById("1.2");
+        s12.innerHTML = x[1];
         for (let i = 0; i < x.length; i++) {
             textArea.innerHTML += x[i] + "\n";
         }
@@ -99,13 +98,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange1" class="form-label" style="position: absolute; left: 440px; color: black; font-size: 12px;">Price</label>
+            <label for="customRange1" id="1.1" class="form-label" style="position: absolute; left: 440px; color: black; font-size: 12px;"></label>
             <input type="range" style="width: 735px; color: rgb(255, 255, 255);" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange1" list="my-datalist"
                    onchange="updateTextInput(this.value);">
-            <label for="customRange1" class="form-label" style="position: absolute; right: 360px ; color: black; font-size: 12px;">Number of Reviews</label>
+            <label for="customRange1" id="1.2" class="form-label" style="position: absolute; right: 360px ; color: black; font-size: 12px;"></label>
             <datalist id="my-datalist">
 
                 <option>9</option>
@@ -155,13 +154,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange2" class="form-label" style="position: absolute; left: 440px; color: black; font-size: 12px;">Price</label>
+            <label for="customRange2" id="2.1"class="form-label" style="position: absolute; left: 440px; color: black; font-size: 12px;"></label>
             <input type="range" style="width: 730px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange2" list="my-datalist"
                    onchange="updateTextInput(this.value);">
-            <label for="customRange2" class="form-label" style="position: absolute; right: 370px; color: black; font-size: 12px;">Positive Rating %</label>
+            <label for="customRange2" id="2.2" class="form-label" style="position: absolute; right: 370px; color: black; font-size: 12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -209,13 +208,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange3" class="form-label" style="position: absolute; left: 440px;color: black; font-size: 12px;">Price</label>
+            <label for="customRange3" id="3.1" class="form-label" style="position: absolute; left: 440px;color: black; font-size: 12px;"></label>
             <input type="range" style="width: 735px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange3" list="my-datalist"
                    onchange="updateTextInput(this.value);">
-            <label for="customRange3" class="form-label" style="position: absolute; right: 370px; color: black; font-size: 12px;">Average Playtime</label>
+            <label for="customRange3" id="3.2" class="form-label" style="position: absolute; right: 370px; color: black; font-size: 12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -262,13 +261,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange4" class="form-label" style="position: absolute; left: 370px;color: black; font-size: 12px;">Number of Ratings</label>
+            <label for="customRange4"  id="4.1" class="form-label" style="position: absolute; left: 370px;color: black; font-size: 12px;"></label>
             <input type="range" style="width: 735px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange4" list="my-datalist"
                    onchange="updateTextInput(this.value);">
-            <label for="customRange4" class="form-label" style="position: absolute; right: 370px; color: black; font-size:12px;">Positive Rating %</label>
+            <label for="customRange4"  id="4.2" class="form-label" style="position: absolute; right: 370px; color: black; font-size:12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -315,13 +314,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange5" class="form-label" style="position: absolute; left: 375px;color: black; font-size: 12px;">Average Playtime</label>
+            <label for="customRange5" id="5.1" class="form-label" style="position: absolute; left: 375px;color: black; font-size: 12px;"></label>
             <input type="range" style="width: 735px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange5" list="my-datalist"
                    onchange="updateTextInput(this.value);">
-            <label for="customRange5" class="form-label" style="position: absolute; right: 360px; color: black; font-size:12px;">Number of Reviews</label>
+            <label for="customRange5" id="5.2" class="form-label" style="position: absolute; right: 360px; color: black; font-size:12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -368,13 +367,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange6" class="form-label" style="position: absolute; left: 375px;color: black; font-size:12px;">Average Playtime</label>
+            <label for="customRange6" id="6.1" class="form-label" style="position: absolute; left: 375px;color: black; font-size:12px;"></label>
             <input type="range" style="width: 735px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange6" list="my-datalist"
                    onchange="updateTextInput(this.value);">
-            <label for="customRange6" class="form-label" style="position: absolute; right:370px; color: black; font-size:12px;">Positive Rating %</label>
+            <label for="customRange6" id="6.2" class="form-label" style="position: absolute; right:370px; color: black; font-size:12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -403,10 +402,53 @@
 
 
 
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!--Script double slider-->
-    <script src="script.js"></script>
+
+   
+    <script >
+
+        const rangeInput = document.querySelectorAll(".range-input input"),
+            priceInput = document.querySelectorAll(".price-input input"),
+            range = document.querySelector(".slider .progress");
+        let priceGap = 1000;
+
+        priceInput.forEach(input => {
+            input.addEventListener("input", e => {
+                let minPrice = parseInt(priceInput[0].value),
+                    maxPrice = parseInt(priceInput[1].value);
+
+                if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max) {
+                    if (e.target.className === "input-min") {
+                        rangeInput[0].value = minPrice;
+                        range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+                    } else {
+                        rangeInput[1].value = maxPrice;
+                        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                    }
+                }
+            });
+        });
+
+        rangeInput.forEach(input => {
+            input.addEventListener("input", e => {
+                let minVal = parseInt(rangeInput[0].value),
+                    maxVal = parseInt(rangeInput[1].value);
+
+                if ((maxVal - minVal) < priceGap) {
+                    if (e.target.className === "range-min") {
+                        rangeInput[0].value = maxVal - priceGap
+                    } else {
+                        rangeInput[1].value = minVal + priceGap;
+                    }
+                } else {
+                    priceInput[0].value = minVal;
+                    priceInput[1].value = maxVal;
+                    range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+                    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+                }
+            });
+        });
+    </script>
     <!--Script dropdown2-->
-    <script src="script_dropdown.js"></script>
+  
 </body>
 </html>

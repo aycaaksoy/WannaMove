@@ -8,7 +8,7 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="///ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></script>
-<link rel="stylesheet" href="~/css/StyleSheetPair.css">
+@*<link rel="stylesheet" href="~/css/StyleSheetPair.css">*@
 
 
 <!doctype html>
@@ -20,15 +20,14 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    
-    
+
+
 
 
     <!-- Checkbox dropdown-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
-    
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -42,27 +41,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <p id="display"></p>
-
-
-    <script>
-        function updateTextInput(val) {
-            document.getElementById('textInput').value = Math.abs(val);
-        }
-
-        let x = sessionStorage.getItem('myArray');
-        console.log(x);
-
-        let textArea = document.getElementById("display");
-        let s11 = document.getElementById("1.1");
-        s11.innerHTML = x[0];
-        let s12 = document.getElementById("1.2");
-        s12.innerHTML = x[1];
-        for (let i = 0; i < x.length; i++) {
-            textArea.innerHTML += x[i] + "\n";
-        }
-
-    </script>
-
 
     <!--Range -->
     <div class="border" id="wrapperr">
@@ -98,13 +76,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange1" id="1.1" class="form-label" style="position: absolute; left: 440px; color: black; font-size: 12px;"></label>
-            <input type="range" style="width: 735px; color: rgb(255, 255, 255);" class="form-range"
+            <label for="customRange1" id="11" class="form-label" style="position: absolute; left: 440px; color: black; font-size: 12px;">aaa</label>
+            <input type="range"  style="width: 735px; color: rgb(255, 255, 255);" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange1" list="my-datalist"
                    onchange="updateTextInput(this.value);">
-            <label for="customRange1" id="1.2" class="form-label" style="position: absolute; right: 360px ; color: black; font-size: 12px;"></label>
+            <label for="customRange1" id="12" class="form-label" style="position: absolute; right: 360px ; color: black; font-size: 12px;">bbb</label>
             <datalist id="my-datalist">
 
                 <option>9</option>
@@ -154,13 +132,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange2" id="2.1"class="form-label" style="position: absolute; left: 440px; color: black; font-size: 12px;"></label>
+            <label for="customRange2" id="twoone" class="form-label" style="position: absolute; left: 440px; color: black; font-size: 12px;"></label>
             <input type="range" style="width: 730px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange2" list="my-datalist"
                    onchange="updateTextInput(this.value);">
-            <label for="customRange2" id="2.2" class="form-label" style="position: absolute; right: 370px; color: black; font-size: 12px;"></label>
+            <label for="customRange2" id="twotwo" class="form-label" style="position: absolute; right: 370px; color: black; font-size: 12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -261,13 +239,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange4"  id="4.1" class="form-label" style="position: absolute; left: 370px;color: black; font-size: 12px;"></label>
+            <label for="customRange4" id="4.1" class="form-label" style="position: absolute; left: 370px;color: black; font-size: 12px;"></label>
             <input type="range" style="width: 735px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange4" list="my-datalist"
                    onchange="updateTextInput(this.value);">
-            <label for="customRange4"  id="4.2" class="form-label" style="position: absolute; right: 370px; color: black; font-size:12px;"></label>
+            <label for="customRange4" id="4.2" class="form-label" style="position: absolute; right: 370px; color: black; font-size:12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -403,8 +381,8 @@
 
 
 
-   
-    <script >
+
+    <script>
 
         const rangeInput = document.querySelectorAll(".range-input input"),
             priceInput = document.querySelectorAll(".price-input input"),
@@ -449,6 +427,31 @@
         });
     </script>
     <!--Script dropdown2-->
-  
+
 </body>
 </html>
+
+<script>
+    function updateTextInput(val) {
+        document.getElementById('textInput').value = Math.abs(val);
+    }
+    
+    let x = sessionStorage.getItem('myArray');
+    let sessionArray = JSON.parse(x);
+    console.log(sessionArray);
+
+    let textArea = document.getElementById("display");
+    let s11 = document.getElementById("11");
+    s11.innerText = sessionArray[0];
+    let s12 = document.getElementById("12");
+    s12.innerText = sessionArray[1];
+    let twoone = document.getElementById("twoone");
+    twoone.innerHTML = sessionArray[0];
+    let twotwo = document.getElementById("twotwo");
+    twotwo.innerHTML = sessionArray[2];
+
+    for (let i = 0; i < sessionArray.length; i++) {
+        textArea.innerHTML += sessionArray[0] + "\n";
+    }
+
+</script>

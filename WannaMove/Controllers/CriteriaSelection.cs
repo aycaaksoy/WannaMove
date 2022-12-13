@@ -8,5 +8,9 @@ namespace WannaMove.Controllers
         {
             return View();
         }
+        public IActionResult SelectCriteria()
+        {
+            return View();
+        }
     }
 }

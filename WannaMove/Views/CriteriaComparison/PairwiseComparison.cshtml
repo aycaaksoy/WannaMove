@@ -6,8 +6,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="///ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></script>
 <link rel="stylesheet" href="~/css/StyleSheetPair.css">
 
 
@@ -20,8 +18,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-
-
 
 
     <!-- Checkbox dropdown-->
@@ -42,6 +38,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <p id="display"></p>
 
+  
     <!--Range -->
     <div class="border" id="wrapperr">
         <header>
@@ -76,13 +73,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange1" id="11" class="form-label" style="position: absolute; left: 440px; color: black; font-size: 12px;"></label>
+            <label for="customRange1" id="11" class="form-label" style="position: absolute; left: 200px; color: black; font-size: 12px;">smthdadfdsf</label>
             <input type="range"  style="width: 735px; color: rgb(255, 255, 255);" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange1" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange1" id="12" class="form-label" style="position: absolute; right: 360px ; color: black; font-size: 12px;"></label>
+                   oninput="showValue(this.value)">
+            <label for="customRange1" id="12" class="form-label" style="position: absolute; right: 200px ; color: black; font-size: 12px;">sgfgdffgd</label>
             <datalist id="my-datalist">
 
                 <option>9</option>
@@ -132,13 +129,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange2" id="21" class="form-label" style="position: absolute; left: 440px; color: black; font-size: 12px;"></label>
+            <label for="customRange2" id="21" class="form-label" style="position: absolute; left: 200px; color: black; font-size: 12px;"></label>
             <input type="range" style="width: 730px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange2" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange2" id="22" class="form-label" style="position: absolute; right: 370px; color: black; font-size: 12px;"></label>
+                   oninput="showValue(this.value)">
+            <label for="customRange2" id="22" class="form-label" style="position: absolute; right: 200px; color: black; font-size: 12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -186,13 +183,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange3" id="31" class="form-label" style="position: absolute; left: 440px;color: black; font-size: 12px;"></label>
+            <label for="customRange3" id="31" class="form-label" style="position: absolute; left: 200px;color: black; font-size: 12px;"></label>
             <input type="range" style="width: 735px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange3" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange3" id="32" class="form-label" style="position: absolute; right: 370px; color: black; font-size: 12px;"></label>
+                   oninput="showValue(this.value)">
+            <label for="customRange3" id="32" class="form-label" style="position: absolute; right: 200px; color: black; font-size: 12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -239,13 +236,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange4" id="41" class="form-label" style="position: absolute; left: 370px;color: black; font-size: 12px;"></label>
+            <label for="customRange4" id="41" class="form-label" style="position: absolute; left: 200px;color: black; font-size: 12px;"></label>
             <input type="range" style="width: 735px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange4" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange4" id="42" class="form-label" style="position: absolute; right: 370px; color: black; font-size:12px;"></label>
+                   oninput="showValue(this.value)">
+            <label for="customRange4" id="42" class="form-label" style="position: absolute; right: 200px; color: black; font-size:12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -292,13 +289,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange5" id="51" class="form-label" style="position: absolute; left: 375px;color: black; font-size: 12px;"></label>
+            <label for="customRange5" id="51" class="form-label" style="position: absolute; left: 200px;color: black; font-size: 12px;"></label>
             <input type="range" style="width: 735px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange5" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange5" id="52" class="form-label" style="position: absolute; right: 360px; color: black; font-size:12px;"></label>
+                   oninput="showValue(this.value)">
+            <label for="customRange5" id="52" class="form-label" style="position: absolute; right: 200px; color: black; font-size:12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -345,13 +342,13 @@
                 <span class="tick"></span>
                 <span class="tick"></span>
             </div>
-            <label for="customRange6" id="61" class="form-label" style="position: absolute; left: 375px;color: black; font-size:12px;"></label>
+            <label for="customRange6" id="61" class="form-label" style="position: absolute; left: 200px;color: black; font-size:12px;"></label>
             <input type="range" style="width: 735px;" class="form-range"
                    min="-9" max="9" step="1" value="0"
                    data-toggle="true"
                    id="customRange6" list="my-datalist"
-                   onchange="updateTextInput(this.value);">
-            <label for="customRange6" id="62" class="form-label" style="position: absolute; right:370px; color: black; font-size:12px;"></label>
+                   oninput="showValue(this.value)">
+            <label for="customRange6" id="62" class="form-label" style="position: absolute; right: 200px; color: black; font-size:12px;"></label>
             <datalist id="my-datalist">
                 <option>9</option>
                 <option>8</option>
@@ -376,6 +373,10 @@
             <br>
 
         </div>
+    </div>
+
+    <div>
+        <button class="btn btn-info" onclick="getValue()" id="rslt">Get Your Results!</button>
     </div>
 
 
@@ -428,14 +429,33 @@
     </script>
     <!--Script dropdown2-->
 
-</body>
-</html>
+
 
 <script>
-    function updateTextInput(val) {
-        document.getElementById('textInput').value = Math.abs(val);
+
+    function showValue(value) {
+        // Display the value of the range slider in the page
+        console.log(value);
     }
     
+    function getValue() {
+        // Create an empty array to store the values
+        var ratings = [];
+
+        // Get the values of all four range sliders
+        var value1 = document.getElementById('customRange1').value;
+        var value2 = document.getElementById('customRange2').value;
+        var value3 = document.getElementById('customRange3').value;
+        var value4 = document.getElementById('customRange4').value;
+        var value5 = document.getElementById('customRange5').value;
+        var value6 = document.getElementById('customRange6').value;
+
+        // Add the values to the array
+        ratings.push(value1, value2, value3, value4, value5, value6);
+        console.log(ratings);
+
+    }
+
     var x =JSON.parse( sessionStorage.getItem('myArray'));
 
     let s11 = document.getElementById("11");
@@ -466,8 +486,9 @@
     let s61 = document.getElementById("61");
     s61.innerHTML = x[2];
     let s62 = document.getElementById("62");
-    s62.innerHTML = x[3];
-
-    
+    s62.innerHTML = x[3];  
 
 </script>
+
+</body>
+</html>

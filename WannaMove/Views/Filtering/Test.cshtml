@@ -16,6 +16,7 @@
 </div>
 <!--  Info -->
 <!--  Checkboxes -->
+
 <table class="table table-striped table-sm">
     <tr>
         <td>
@@ -51,22 +52,6 @@
                 <th onclick="sortTable(0)">Continent</th>
                 <th onclick="sortTable(1)">Country</th>
                 <th onclick="sortTable(2)">City</th>
-                <th onclick="sortTable(3)">Business Freedom</th>
-                <th onclick="sortTable(4)">Commute</th>
-                <th onclick="sortTable(5)">Safety</th>
-                <th onclick="sortTable(6)">Economy</th>
-                <th onclick="sortTable(7)">Cost of Living</th>
-                <th onclick="sortTable(8)">Education</th>
-                <th onclick="sortTable(9)">Environmental Quality</th>
-                <th onclick="sortTable(10)">Healthcare</th>
-                <th onclick="sortTable(11)">Housing</th>
-                <th onclick="sortTable(12)">Internet Access</th>
-                <th onclick="sortTable(13)">Leisure & Culture</th>
-                <th onclick="sortTable(14)">Outdoors</th>
-                <th onclick="sortTable(15)">Taxation</th>
-                <th onclick="sortTable(16)">Startups</th>
-                <th onclick="sortTable(17)">Tolerance</th>
-                <th onclick="sortTable(18)">Travel Connectivity</th>
             </tr>
         </thead>
         <!--  Table Body / Rows -->
@@ -87,140 +72,43 @@
                         @item.CityName
 
                     </td>
-                    <td>
-                        @item.BusinessFreedom
-
-                    </td>
-                    <td>
-                        @item.Commute
-
-                    </td>
-                    <td>
-                        @item.Safety
-
-                    </td>
-                    <td>
-                        @item.Economy
-
-                    </td>
-                    <td>
-                        @item.CostofLiving
-
-                    </td>
-                    <td>
-                        @item.Education
-
-                    </td>
-
-                    <td>
-                        @item.EnvironmentalQuality
-
-                    </td>
-                    <td>
-                        @item.Healthcare
-
-                    </td>
-                    <td>
-                        @item.Housing
-
-                    </td>
-                    <td>
-                        @item.InternetAccess
-
-                    </td>
-                    <td>
-                        @item.LeisureCulture
-
-                    </td>
-                    <td>
-                        @item.Outdoors
-
-                    </td>
-                    <td>
-                        @item.Taxation
-
-                    </td>
-                    <td>
-                        @item.Startups
-
-                    </td>
-                    <td>
-                        @item.Tolerance
-
-                    </td>
-                    <td>
-                        @item.TravelConnectivity
-
-                    </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
 <button type="button" class="btn-save">Save</button>
-
-
-<!--Very basic body-->
-<input type="text" placeholder="Cookie value..." class="val" />
-<br>
-<br>
-<button class="create">Create Cookie</button>
-<button class="get">Get Cookie</button>
-<button class="delete">Delete Cookie</button>
-
 <script >
-    // cookie
-    $(document).ready(function () {
+    // Get all checkboxes
+    var checkboxes = document.querySelectorAll("input[type=checkbox]");
 
-        //Variables
-        var a1 = $(".a1");
-        var a2 = $(".a2");
-        var a3 = $(".a3");
-        var a4 = $(".a4");
-        var a5 = $(".a5");
-        var a6 = $(".a6");
-        var val = $(".val");
-        var crt = $(".create");
-        var getc = $(".get");
-        var delc = $(".delete");
-        var btnsave = $(".btn-save");
+    function filter_continent(cb) {
+      
+        // Array to store the checked checkboxes
+        var checkedCheckboxes = [];
 
-        //Cookie code (cookie monster says yum! (parody))
-
-        //Create cookie
-        btnsave.click(function () {
-            if (a1.checked == true) {
-                Cookies.set("asia-cookie", val.val());
-            } else {
-                console.log("nothing happened");
+        // Loop through all checkboxes
+        for (var i = 0; i < checkboxes.length; i++) {
+            // If the checkbox is checked, add its value to the array
+            if (checkboxes[i].checked) {
+                checkedCheckboxes.push(checkboxes[i].value);
             }
-        });
+            // If the checkbox is unchecked, remove its value from the array
+            else {
+                var index = checkedCheckboxes.indexOf(checkboxes[i].value);
+                if (index > -1) {
+                    checkedCheckboxes.splice(index, 1);
+                }
+            }
+            sessionStorage.setItem('myArray', JSON.stringify(checkedCheckboxes));
+        }
 
-        crt.click(function () {
+        // Log the checked checkboxes array to the console
+        console.log(checkedCheckboxes);
+    }
 
-            Cookies.set("first-cookie", val.val());
 
-        });
-
-        //Read the cookie value
-        getc.click(function () {
-
-            var cookieval = Cookies.get("first-cookie");
-
-            alert("Cookie value is " + cookieval);
-
-        });
-
-        //Remove the cookie
-        getc.click(function () {
-
-            Cookies.remove("first-cookie");
-
-        });
-
-    });
-
-    // other stuff
+    
     /* Sort function */
     function sortTable(n) {
         var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;

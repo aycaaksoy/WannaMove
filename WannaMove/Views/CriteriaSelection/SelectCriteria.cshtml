@@ -67,7 +67,7 @@
 
     <a href="/CriteriaComparison/PairwiseComparison">Continue</a>
     <script>
-        // The function
+         
         function limitCheckboxes(settings) {
             if (settings.elements === undefined) { return; }
             if (settings.maxCount === undefined) { settings.maxCount = false; return; }
@@ -125,7 +125,7 @@
             }
         }
 
-        // The demo
+         
         var checkboxGroup1 = document.getElementById('checkbox-group-1'),
             checkboxesGroup1 = checkboxGroup1.querySelectorAll('input[type="checkbox"]')
 
@@ -133,6 +133,7 @@
         limitCheckboxes({
             elements: checkboxesGroup1,
             maxCount: "4"
+           
         });
 
 

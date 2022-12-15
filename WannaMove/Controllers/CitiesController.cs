@@ -13,7 +13,7 @@ namespace WannaMove.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Info()
         {
             var c = _context.UaScoresDataFrame.ToList();
             return View(c);

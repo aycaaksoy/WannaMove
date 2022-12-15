@@ -17,19 +17,14 @@ namespace WannaMove.Controllers
         {
             _context = context;
         }
-        // GET: Home
-        public IActionResult FilterOptions()
-        {
-            var c = _context.UaScoresDataFrame.ToList();
-            return View(c);  
-        }
-
-        public IActionResult Test()
+        
+        public IActionResult Filter()
         {
             var c = _context.UaScoresDataFrame.ToList();
             return View(c);
         }
 
+        
 
 
 

@@ -1,4 +1,6 @@
 ﻿@{
+    
+    var message = TempData["MsgChangeUS"] ?? string.Empty;
     ViewData["Title"] = "PairwiseComparison";
     Layout = "~/Views/Shared/_OnePageLayout.cshtml";
 }
@@ -464,9 +466,9 @@
                     filteredContinents: filteredContinents,
                     ratings: ratings
                 },
-                success: function (response) {
-                    window.location.href = '/Result';
-                }
+                //success: function (response) {
+                    
+                //}
             });
         }
 
@@ -503,6 +505,10 @@
         s62.innerHTML = x[3];
 
     </script>
-
+    <script type="text/javascript">
+        var message = '@message';
+        if (message)
+            alert(message);
+    </script>
 </body>
 </html>

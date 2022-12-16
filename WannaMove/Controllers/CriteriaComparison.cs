@@ -3,16 +3,24 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using WannaMove.Data;
 
 namespace WannaMove.Controllers
 {
     public class CriteriaComparison : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public CriteriaComparison (ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult PairwiseComparison()
         {
             return View();
         }
 
+        [HttpGet]
         public IActionResult PairwiseComparisonError()
         {
             return View();
@@ -21,13 +29,16 @@ namespace WannaMove.Controllers
         [HttpGet]
         public IActionResult Result()
         {
-            return View("PairwiseComparisonError");
+            return View();
         }
+
         [HttpPost]
         public IActionResult Result(string[] SelectedCriteria, string[] filteredContinents, string[] Ratings)
         {
+            //model ekledik?
+            var c = _context.UaScoresDataFrame.ToList();
             // Manipulate the arrays here
-            
+
             string[] selectedCriteria = SelectedCriteria;
             string[] filterContinents = filteredContinents;
             string[] ratings = Ratings;
@@ -114,8 +125,8 @@ namespace WannaMove.Controllers
             bool isConsistent = IsPairwiseComparisonConsistent(createPWComparisonMatrix(pairwiseComparisonScores));
             if (!isConsistent)
             {
-               
-                return View("PairwiseComparisonError");
+                TempData["MsgChangeStatus"] = "Please Reenter your scores";
+                return RedirectToAction("PairwiseComparison");
             }
             else
             {
@@ -137,13 +148,6 @@ namespace WannaMove.Controllers
                 // Select top 3 cities
                 List<string> topCities = SelectTopCities(cityAhpScores);
 
-                // Display top 3 cities
-                Console.WriteLine("The top 3 cities are:");
-                foreach (string city in topCities)
-                {
-                    Console.WriteLine(city);
-                    
-                }
                 return View(topCities);
             }
 

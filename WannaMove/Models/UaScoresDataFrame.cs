@@ -15,44 +15,44 @@ namespace WannaMove.Models
         public string Country { get; set; }
         public string Continent { get; set; }
         
-        public decimal Housing { get; set; }
+        public double Housing { get; set; }
         
-        public decimal CostofLiving { get; set; }
+        public double CostofLiving { get; set; }
         
-        public decimal Startups { get; set; }
+        public double Startups { get; set; }
         
-        public decimal TravelConnectivity { get; set; }
+        public double TravelConnectivity { get; set; }
         
-        public decimal Commute { get; set; }
+        public double Commute { get; set; }
         
-        public decimal BusinessFreedom { get; set; }
+        public double BusinessFreedom { get; set; }
         
-        public decimal Safety { get; set; }
+        public double Safety { get; set; }
         
-        public decimal Healthcare { get; set; }
+        public double Healthcare { get; set; }
         
-        public decimal Education { get; set; }
+        public double Education { get; set; }
         
-        public decimal EnvironmentalQuality { get; set; }
+        public double EnvironmentalQuality { get; set; }
         
-        public decimal Economy { get; set; }
+        public double Economy { get; set; }
         
-        public decimal Taxation { get; set; }
+        public double Taxation { get; set; }
         
-        public decimal InternetAccess { get; set; }
+        public double InternetAccess { get; set; }
         
-        public decimal LeisureCulture { get; set; }
+        public double LeisureCulture { get; set; }
         
-        public decimal Tolerance { get; set; }
+        public double Tolerance { get; set; }
         
-        public decimal Outdoors { get; set; }
+        public double Outdoors { get; set; }
 
         public UaScoresDataFrame()
         {
 
         }
 
-        public UaScoresDataFrame(int cityId, string cityName, string country, string continent, decimal housing, decimal costofLiving, decimal startups, decimal travelConnectivity, decimal commute, decimal businessFreedom, decimal safety, decimal healthcare, decimal education, decimal environmentalQuality, decimal economy, decimal taxation, decimal internetAccess, decimal leisureCulture, decimal tolerance, decimal outdoors)
+        public UaScoresDataFrame(int cityId, string cityName, string country, string continent, double housing, double costofLiving, double startups, double travelConnectivity, double commute, double businessFreedom, double safety, double healthcare, double education, double environmentalQuality, double economy, double taxation, double internetAccess, double leisureCulture, double tolerance, double outdoors)
         {
             CityId = cityId;
             CityName = cityName;

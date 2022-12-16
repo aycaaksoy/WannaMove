@@ -1,0 +1,16 @@
+﻿@model List<string>
+
+
+@{
+    ViewData["Title"] = "Result";
+    Layout = "~/Views/Shared/_OnePageLayout.cshtml";
+}
+
+<h1>Result</h1>
+
+<ul>
+    @foreach (var str in Model)
+    {
+        <li>@str</li>
+    }
+</ul>

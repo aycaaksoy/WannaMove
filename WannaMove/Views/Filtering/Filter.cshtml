@@ -22,7 +22,7 @@
     <br />
     <!--  Info -->
     <!--  Checkboxes -->
-
+    <div id="checkbox-group-1">
     <table class="table table-striped table-sm">
         <tr>
             <td>
@@ -46,6 +46,7 @@
             </td>
         </tr>
     </table>
+    </div>
     <!--  Table -->
 
 
@@ -91,32 +92,57 @@
 
 
     // Array to store the checked checkboxes
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]')
-    var checkedCheckboxes = [];
-    function getValue() {
-        // Loop through all checkboxes
-        for (var i = 0; i < checkboxes.length; i++) {
-            // If the checkbox is checked, add its value to the array
-            if (checkboxes[i].checked) {
-                checkedCheckboxes.push(checkboxes[i].value);
-                alert(checkedCheckboxes);
-            }
-            // If the checkbox is unchecked, remove its value from the array
-            else {
-                var index = checkedCheckboxes.indexOf(checkboxes[i].value);
-                if (index > -1) {
-                    checkedCheckboxes.splice(index, 1);
-                    alert(checkedCheckboxes);
 
+    var checkboxGroup1 = document.getElementById('checkbox-group-1'),
+        checkboxesGroup1 = checkboxGroup1.querySelectorAll('input[type="checkbox"]')
+    //
+    let values = []; // array to store the selected checkbox values
+
+    for (let checkbox of checkboxesGroup1) {
+        checkbox.addEventListener('change', function () {
+            let value = this.value;
+            if (this.checked) {
+                // add value to array if checkbox is checked
+                values.push(value);
+                console.log(values);
+            } else {
+                // remove value from array if checkbox is unchecked
+                let index = values.indexOf(value);
+                if (index > -1) {
+                    values.splice(index, 1);
+                    console.log(values);
                 }
             }
-            sessionStorage.setItem('filterContinents', JSON.stringify(checkedCheckboxes));
-        }
-
-        // Log the checked checkboxes array to the console
-        console.log(checkedCheckboxes);
-
+            sessionStorage.setItem('filteredContinents', JSON.stringify(values));
+        });
     }
+
+    //var checkboxes = document.querySelectorAll('input[type="checkbox"]')
+    //var checkedCheckboxes = [];
+    //function getValue() {
+    //    // Loop through all checkboxes
+    //    for (var i = 0; i < checkboxes.length; i++) {
+    //        // If the checkbox is checked, add its value to the array
+    //        if (checkboxes[i].checked) {
+    //            checkedCheckboxes.push(checkboxes[i].value);
+    //            alert(checkedCheckboxes);
+    //        }
+    //        // If the checkbox is unchecked, remove its value from the array
+    //        else {
+    //            var index = checkedCheckboxes.indexOf(checkboxes[i].value);
+    //            if (index > -1) {
+    //                checkedCheckboxes.splice(index, 1);
+    //                alert(checkedCheckboxes);
+
+    //            }
+    //        }
+    //        sessionStorage.setItem('filteredContinents', JSON.stringify(checkedCheckboxes));
+    //    }
+
+    //    // Log the checked checkboxes array to the console
+    //    console.log(checkedCheckboxes);
+
+    //}
 
 
 
@@ -205,25 +231,25 @@
         var values = [];
         var all_checked_continents = [];
         
-        for (let checkbox of cbs) {
-            checkbox.addEventListener('change', function () {
-                let value = this.value;
-                if (this.checked) {
-                    // add value to array if checkbox is checked
-                    values.push(value);
-                    
-                } else {
-                    // remove value from array if checkbox is unchecked
-                    let index = values.indexOf(value);
-                    if (index > -1) {
-                        values.splice(index, 1);
+        //for (let checkbox of cbs) {
+        //    checkbox.addEventListener('change', function () {
+        //        let value = this.value;
+        //        if (this.checked) {
+        //            // add value to array if checkbox is checked
+        //            values.push(value);
+                 
+        //        } else {
+        //            // remove value from array if checkbox is unchecked
+        //            let index = values.indexOf(value);
+        //            if (index > -1) {
+        //                values.splice(index, 1);
 
                         
-                    }
-                }
-                sessionStorage.setItem('filteredContinent', JSON.stringify(values));
-            });
-        }
+        //        //    }
+        //        }
+        //        sessionStorage.setItem('filteredContinent', JSON.stringify(values));
+        //    });
+        //}
         
         for (var i = 0; i < cbs.length; i++) {
             if (cbs[i].type == "checkbox") {

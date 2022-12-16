@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WannaMove.Migrations
 {
-    public partial class tables : Migration
+    public partial class decimalTodouble : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,38 +55,26 @@ namespace WannaMove.Migrations
                     CityName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Continent = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Housing = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    CostofLiving = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Startups = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    TravelConnectivity = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Commute = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    BusinessFreedom = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Safety = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Healthcare = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Education = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    EnvironmentalQuality = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Economy = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Taxation = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    InternetAccess = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    LeisureCulture = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Tolerance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Outdoors = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Housing = table.Column<double>(type: "float", nullable: false),
+                    CostofLiving = table.Column<double>(type: "float", nullable: false),
+                    Startups = table.Column<double>(type: "float", nullable: false),
+                    TravelConnectivity = table.Column<double>(type: "float", nullable: false),
+                    Commute = table.Column<double>(type: "float", nullable: false),
+                    BusinessFreedom = table.Column<double>(type: "float", nullable: false),
+                    Safety = table.Column<double>(type: "float", nullable: false),
+                    Healthcare = table.Column<double>(type: "float", nullable: false),
+                    Education = table.Column<double>(type: "float", nullable: false),
+                    EnvironmentalQuality = table.Column<double>(type: "float", nullable: false),
+                    Economy = table.Column<double>(type: "float", nullable: false),
+                    Taxation = table.Column<double>(type: "float", nullable: false),
+                    InternetAccess = table.Column<double>(type: "float", nullable: false),
+                    LeisureCulture = table.Column<double>(type: "float", nullable: false),
+                    Tolerance = table.Column<double>(type: "float", nullable: false),
+                    Outdoors = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UaScoresDataFrame", x => x.CityId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserDataViewModels",
-                columns: table => new
-                {
-                    UserID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserDataViewModels", x => x.UserID);
                 });
 
             migrationBuilder.CreateTable(
@@ -195,36 +183,6 @@ namespace WannaMove.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "UserResults",
-                columns: table => new
-                {
-                    ResultId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Criteria = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FilteredData = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Result = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserResultsResultId = table.Column<int>(type: "int", nullable: true),
-                    UserID = table.Column<int>(type: "int", nullable: false),
-                    UserDataViewModelUserID = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserResults", x => x.ResultId);
-                    table.ForeignKey(
-                        name: "FK_UserResults_UserDataViewModels_UserDataViewModelUserID",
-                        column: x => x.UserDataViewModelUserID,
-                        principalTable: "UserDataViewModels",
-                        principalColumn: "UserID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_UserResults_UserResults_UserResultsResultId",
-                        column: x => x.UserResultsResultId,
-                        principalTable: "UserResults",
-                        principalColumn: "ResultId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -263,16 +221,6 @@ namespace WannaMove.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserResults_UserDataViewModelUserID",
-                table: "UserResults",
-                column: "UserDataViewModelUserID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserResults_UserResultsResultId",
-                table: "UserResults",
-                column: "UserResultsResultId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -296,16 +244,10 @@ namespace WannaMove.Migrations
                 name: "UaScoresDataFrame");
 
             migrationBuilder.DropTable(
-                name: "UserResults");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "UserDataViewModels");
         }
     }
 }

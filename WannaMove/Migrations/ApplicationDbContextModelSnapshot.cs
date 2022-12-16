@@ -226,112 +226,66 @@ namespace WannaMove.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("BusinessFreedom")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("BusinessFreedom")
+                        .HasColumnType("float");
 
                     b.Property<string>("CityName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Commute")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Commute")
+                        .HasColumnType("float");
 
                     b.Property<string>("Continent")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("CostofLiving")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("CostofLiving")
+                        .HasColumnType("float");
 
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Economy")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Economy")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("Education")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Education")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("EnvironmentalQuality")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("EnvironmentalQuality")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("Healthcare")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Healthcare")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("Housing")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Housing")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("InternetAccess")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("InternetAccess")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("LeisureCulture")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("LeisureCulture")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("Outdoors")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Outdoors")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("Safety")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Safety")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("Startups")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Startups")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("Taxation")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Taxation")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("Tolerance")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Tolerance")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("TravelConnectivity")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("TravelConnectivity")
+                        .HasColumnType("float");
 
                     b.HasKey("CityId");
 
                     b.ToTable("UaScoresDataFrame");
-                });
-
-            modelBuilder.Entity("WannaMove.Models.UserDataViewModel", b =>
-                {
-                    b.Property<int>("UserID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("UserID");
-
-                    b.ToTable("UserDataViewModels");
-                });
-
-            modelBuilder.Entity("WannaMove.Models.UserResult", b =>
-                {
-                    b.Property<int>("ResultId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Criteria")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FilteredData")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Result")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("UserDataViewModelUserID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserResultsResultId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ResultId");
-
-                    b.HasIndex("UserDataViewModelUserID");
-
-                    b.HasIndex("UserResultsResultId");
-
-                    b.ToTable("UserResults");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -383,24 +337,6 @@ namespace WannaMove.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("WannaMove.Models.UserResult", b =>
-                {
-                    b.HasOne("WannaMove.Models.UserDataViewModel", null)
-                        .WithMany("UserResults")
-                        .HasForeignKey("UserDataViewModelUserID");
-
-                    b.HasOne("WannaMove.Models.UserResult", "UserResults")
-                        .WithMany()
-                        .HasForeignKey("UserResultsResultId");
-
-                    b.Navigation("UserResults");
-                });
-
-            modelBuilder.Entity("WannaMove.Models.UserDataViewModel", b =>
-                {
-                    b.Navigation("UserResults");
                 });
 #pragma warning restore 612, 618
         }

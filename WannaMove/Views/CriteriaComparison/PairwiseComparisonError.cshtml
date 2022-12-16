@@ -1,5 +1,4 @@
 ﻿@{
-    ViewData["Title"] = "PairwiseComparison";
     Layout = "~/Views/Shared/_OnePageLayout.cshtml";
 }
 
@@ -12,6 +11,7 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
+    <!-- ERROR VİEW -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,6 +42,7 @@
 
 
             <h2 style="color:#124265; font-weight:bold; "> Please Compare Your Own Preferences</h2>
+            <h2 style="color:#124265; font-weight:bold; "> ERROR</h2>
             <br>
             <h4>Please drag the cursor towards the criterion which is more important for you.</h4>
             <h4>The closer to the item, the more important it is!</h4>
@@ -436,7 +437,7 @@
             console.log(value);
         }
         var SelectedCriteria = JSON.parse(sessionStorage.getItem('SelectedCriteria'));
-        var filteredContinents = JSON.parse(sessionStorage.getItem('filteredContinents'));
+        var filterContinents = JSON.parse(sessionStorage.getItem('filterContinents'));
 
         function getValue() {
             // Create an empty array to store the values
@@ -458,14 +459,14 @@
             // Use the $.ajax method to send the arrays to the controller
             $.ajax({
                 type: "POST",
-                url: "/CriteriaComparison/Result",
+                url: "/CriteriaComparison/CalculateAhp",
                 data: {
                     SelectedCriteria: SelectedCriteria,
-                    filteredContinents: filteredContinents,
+                    filterContinents: filterContinents,
                     ratings: ratings
                 },
                 success: function (response) {
-                    window.location.href = '/Result';
+                    alert("success");
                 }
             });
         }

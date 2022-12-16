@@ -125,8 +125,7 @@ namespace WannaMove.Controllers
             bool isConsistent = IsPairwiseComparisonConsistent(createPWComparisonMatrix(pairwiseComparisonScores));
             if (!isConsistent)
             {
-                TempData["MsgChangeStatus"] = "Please Reenter your scores";
-                return RedirectToAction("PairwiseComparison");
+                return View();
             }
             else
             {

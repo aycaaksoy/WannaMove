@@ -1,18 +1,20 @@
-﻿@*@model List<string>
-*@
+﻿@model Dictionary<string, double>
 
 @{
-   
     Layout = "~/Views/Shared/_OnePageLayout.cshtml";
 }
 
 <h1>Result</h1>
 
-@*<ul>
-    @foreach (var str in Model)
+<ul>@*
+    @foreach (var item in Model)
     {
-        <li>@str</li>
-    }
-</ul>*@
+        <li>@item.Key</li>
+        <li>@item.Value</li>
+    }*@
+
+    <li>@Model.Keys.First()</li>
+    <li>@Model.Values.First()</li>
+</ul>
 
 <h1>CRRRR</h1>

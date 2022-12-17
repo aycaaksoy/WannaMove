@@ -26,13 +26,20 @@ namespace WannaMove.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult Result(Dictionary<string, double> response)
+        {
+
+            return View(response);
+        }
+
         [HttpPost]
         public JsonResult CalculateAhp2(string[] SelectedCriteria, string[] filteredContinents, string[] Ratings)
         {
             string[] selectedCriteria = SelectedCriteria;
             string[] filterContinents = filteredContinents;
             string[] ratings = Ratings;
-            List<string> res = new List<string>();
+            Dictionary<string, double> res = new Dictionary<string, double>();
             res = CalculateAhp(selectedCriteria, filterContinents, ratings);
 
             if (res == null)
@@ -46,7 +53,7 @@ namespace WannaMove.Controllers
             
         }
 
-        public List<string> CalculateAhp(string[] kriterler, string[] kitalar, string[] reytingler)
+        public Dictionary<string, double> CalculateAhp(string[] kriterler, string[] kitalar, string[] reytingler)
         {
             //model ekledik?
             var c = _context.UaScoresDataFrame.ToList();
@@ -132,8 +139,8 @@ namespace WannaMove.Controllers
             reader.Close();
             connection.Close();
 
-            
-            List<string> topCities=null;
+
+            Dictionary<string, double> topCities =null;
 
             // Check if pairwise comparison is consistent
             bool isConsistent = IsPairwiseComparisonConsistent(createPWComparisonMatrix(pairwiseComparisonScores));
@@ -335,25 +342,30 @@ namespace WannaMove.Controllers
         // Returns a Dictionary with city(String) as Key, calculated AHP score(double) as value.
 
 
-        static List<string> SelectTopCities(Dictionary<string, double> cityAhpScores)
+        static Dictionary<string, double> SelectTopCities(Dictionary<string, double> cityAhpScores)
         {
             // Sort cityAhpScores dictionary by values in descending order
-            var sortedCityAhpScores = from entry in cityAhpScores orderby entry.Value descending select entry;
+            //var sortedCityAhpScores = from entry in cityAhpScores orderby entry.Value descending select entry;
+            //Dictionary<string, double> sortedCityAhpScores = (from entry in cityAhpScores orderby entry.Value descending select entry);
+
+            var sortedCityAhpScores = cityAhpScores.OrderByDescending(pair => pair.Value).Take(cityAhpScores.Count())
+               .ToDictionary(pair => pair.Key, pair => pair.Value);
 
             // Select top 3 cities
-            List<string> topCities = new List<string>();
-            int i = 0;
-            foreach (KeyValuePair<string, double> entry in sortedCityAhpScores)
-            {
-                if (i == 3)
-                {
-                    break;
-                }
-                topCities.Add(entry.Key);
-                i++;
-            }
+            //List<string> topCities = new List<string>();
+            //int i = 0;
+            //foreach (KeyValuePair<string, double> entry in sortedCityAhpScores)
+            //{
+            //    if (i == 3)
+            //    {
+            //        break;
+            //    }
+            //    topCities.Add(entry.Key);
+            //    i++;
+            //}
 
-            return topCities;
+
+            return sortedCityAhpScores;
         }
     }
 

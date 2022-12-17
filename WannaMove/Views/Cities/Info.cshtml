@@ -52,12 +52,14 @@
                                 </a>
                             </td>
                             <td>
+                                <a href="@Url.Action("Details", "Cities", new { id = item.CityId })">
                                 @item.Continent
-
+                                </a>
                             </td>
                             <td>
+                                <a href="@Url.Action("Details", "Cities", new { id = item.CityId })">
                                 @item.Country
-
+                                </a>
 
                             </td>
 
@@ -67,68 +69,84 @@
                                 </a>
                             </td>
                             <td>
-                                @item.BusinessFreedom
+                             
+                                @Math.Round(item.BusinessFreedom, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.Commute
+                               
+                                @Math.Round(item.Commute, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.Safety
+                               
+                                @Math.Round(item.Safety, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.Economy
+                             
+                                @Math.Round(item.Economy, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.CostofLiving
+                              
+                                @Math.Round(item.CostofLiving, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.Education
+                         
+                                @Math.Round(item.Education, 2, MidpointRounding.AwayFromZero)
 
                             </td>
 
                             <td>
-                                @item.EnvironmentalQuality
+                              
+                                @Math.Round(item.EnvironmentalQuality, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.Healthcare
+                               
+                                @Math.Round(item.Healthcare, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.Housing
+                                
+                                @Math.Round(item.Housing, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.InternetAccess
+                                
+                                @Math.Round(item.InternetAccess, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.LeisureCulture
+                                
+                                @Math.Round(item.LeisureCulture, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.Outdoors
+                                
+                                @Math.Round(item.Outdoors, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.Taxation
+                                
+                                @Math.Round(item.Taxation, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.Startups
+                                
+                                @Math.Round(item.Startups, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.Tolerance
+                                
+                                @Math.Round(item.Tolerance, 2, MidpointRounding.AwayFromZero)
 
                             </td>
                             <td>
-                                @item.TravelConnectivity
+                                
+                                @Math.Round(item.TravelConnectivity, 2, MidpointRounding.AwayFromZero)
 
                             </td>
 

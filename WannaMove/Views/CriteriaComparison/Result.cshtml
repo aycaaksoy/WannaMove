@@ -31,7 +31,7 @@
                 <div class="row p-2 bg-white border rounded">
                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
                     <div class="col-md-6 mt-1">
-                        <h5>@Model.Keys.First()</h5>
+                        <h5><a href="@Url.Action("Details", "Cities", new { name = @Model.Keys.First() })">@Model.Keys.First()</a></h5>
 
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
@@ -45,14 +45,14 @@
                             <h4 class="mr-1">City AHP Score</h4>
                         </div>
                         <h6 class="text-success">@Model.Values.First()</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button"><a href="@Url.Action("Details", "Cities", new { name = @Model.Keys.First() })">Details</a></button></div>
                     </div>
                 </div>
                 <br />
                 <div class="row p-2 bg-white border rounded">
                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
                     <div class="col-md-6 mt-1">
-                        <h5>@second.Key</h5>
+                        <h5><a href="@Url.Action("Details", "Cities", new { name = @second.Key })">@second.Key</a></h5>
 
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
@@ -66,14 +66,14 @@
                             <h4 class="mr-1">City AHP Score</h4>
                         </div>
                         <h6 class="text-success">@second.Value.ToString()</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button"><a href="@Url.Action("Details", "Cities", new { name = @second.Key })">Details</a></button></div>
                     </div>
                 </div>
                 <br />
                 <div class="row p-2 bg-white border rounded">
                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
                     <div class="col-md-6 mt-1">
-                        <h5>@third.Key</h5>
+                        <h5><a href="@Url.Action("Details", "Cities", new { name = @third.Key })">@third.Key</a></h5>
 
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
@@ -87,14 +87,14 @@
                             <h4 class="mr-1">City AHP Score</h4>
                         </div>
                         <h6 class="text-success">@third.Value.ToString()</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button"><a href="@Url.Action("Details", "Cities", new { name = @third.Key })">Details</a></button></div>
                     </div>
                 </div>
 
                 <div class="row p-2 bg-white border rounded">
                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
                     <div class="col-md-6 mt-1">
-                        <h5>@forth.Key</h5>
+                        <h5><a href="@Url.Action("Details", "Cities", new { name = @forth.Key })">@forth.Key</a></h5>
 
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
@@ -108,13 +108,13 @@
                             <h4 class="mr-1">City AHP Score</h4>
                         </div>
                         <h6 class="text-success">@forth.Value.ToString()</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button"><a href="@Url.Action("Details", "Cities", new { name = @forth.Key })">Details</a></button></div>
                     </div>
                 </div>
                 <div class="row p-2 bg-white border rounded">
                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
                     <div class="col-md-6 mt-1">
-                        <h5>@fifth.Key</h5>
+                        <h5><a href="@Url.Action("Details", "Cities", new { name = @fifth.Key })">@fifth.Key</a></h5>
 
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
@@ -128,13 +128,13 @@
                             <h4 class="mr-1">City AHP Score</h4>
                         </div>
                         <h6 class="text-success">@fifth.Value.ToString()</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button"><a href="@Url.Action("Details", "Cities", new { name = @fifth.Key })">Details</a></button></div>
                     </div>
                 </div>
                 <div class="row p-2 bg-white border rounded">
                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
                     <div class="col-md-6 mt-1">
-                        <h5>@sixth.Key</h5>
+                        <h5><a href="@Url.Action("Details", "Cities", new { name = @sixth.Key })">@sixth.Key</a></h5>
 
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
@@ -148,13 +148,13 @@
                             <h4 class="mr-1">City AHP Score</h4>
                         </div>
                         <h6 class="text-success">@sixth.Value.ToString()</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button"><a href="@Url.Action("Details", "Cities", new { name = @sixth.Key })">Details</a></button></div>
                     </div>
                 </div>
                 <div class="row p-2 bg-white border rounded">
                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
                     <div class="col-md-6 mt-1">
-                        <h5>@seventh.Key</h5>
+                        <h5><a href="@Url.Action("Details", "Cities", new { name = @seventh.Key })">@seventh.Key</a></h5>
 
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
@@ -168,13 +168,13 @@
                             <h4 class="mr-1">City AHP Score</h4>
                         </div>
                         <h6 class="text-success">@seventh.Value.ToString()</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button"><a href="@Url.Action("Details", "Cities", new { name = @seventh.Key })">Details</a></button></div>
                     </div>
                 </div>
                   <div class="row p-2 bg-white border rounded">
                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
                     <div class="col-md-6 mt-1">
-                        <h5>@eight.Key</h5>
+                        <h5><a href="@Url.Action("Details", "Cities", new { name = @eight.Key })">@eight.Key</a></h5>
 
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
@@ -188,13 +188,13 @@
                             <h4 class="mr-1">City AHP Score</h4>
                         </div>
                         <h6 class="text-success">@eight.Value.ToString()</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button"><a href="@Url.Action("Details", "Cities", new { name = @eight.Key })">Details</a></button></div>
                     </div>
                 </div>
                 <div class="row p-2 bg-white border rounded">
                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
                     <div class="col-md-6 mt-1">
-                        <h5>@nineth.Key</h5>
+                        <h5><a href="@Url.Action("Details", "Cities", new { name = @nineth.Key })">@nineth.Key</a></h5>
 
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
@@ -208,13 +208,13 @@
                             <h4 class="mr-1">City AHP Score</h4>
                         </div>
                         <h6 class="text-success">@nineth.Value.ToString()</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button"><a href="@Url.Action("Details", "Cities", new { name = @nineth.Key })">Details</a></button></div>
                     </div>
                 </div>
                 <div class="row p-2 bg-white border rounded">
                     <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
                     <div class="col-md-6 mt-1">
-                        <h5>@tenth.Key</h5>
+                        <h5><a href="@Url.Action("Details", "Cities", new { name = @tenth.Key })">@tenth.Key</a></h5>
 
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
                         <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
@@ -228,7 +228,7 @@
                             <h4 class="mr-1">City AHP Score</h4>
                         </div>
                         <h6 class="text-success">@tenth.Value.ToString()</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button"><a href="@Url.Action("Details", "Cities", new { name = @tenth.Key })">Details</a></button></div>
                     </div>
                 </div>
             </div>

@@ -19,9 +19,9 @@ namespace WannaMove.Controllers
             return View(c);
         }
         [HttpGet]
-        public IActionResult Details(int id)
+        public IActionResult Details(string name)
         {
-            var item = _context.UaScoresDataFrame.Find(id);
+            var item = _context.UaScoresDataFrame.Where(c => c.CityName == name).FirstOrDefault();
             if (item == null)
             {
                 return NotFound();

@@ -347,8 +347,8 @@ namespace WannaMove.Controllers
             // Sort cityAhpScores dictionary by values in descending order
             //var sortedCityAhpScores = from entry in cityAhpScores orderby entry.Value descending select entry;
             //Dictionary<string, double> sortedCityAhpScores = (from entry in cityAhpScores orderby entry.Value descending select entry);
-
-            var sortedCityAhpScores = cityAhpScores.OrderByDescending(pair => pair.Value).Take(cityAhpScores.Count())
+            //cityAhpScores.Count()
+            var sortedCityAhpScores = cityAhpScores.OrderByDescending(pair => pair.Value).Take(3)
                .ToDictionary(pair => pair.Key, pair => pair.Value);
 
             // Select top 3 cities

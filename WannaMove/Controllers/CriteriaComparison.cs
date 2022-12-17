@@ -106,13 +106,24 @@ namespace WannaMove.Controllers
             SqlConnection connection = new SqlConnection("Server=DESKTOP-60DI5A8;Database=DbWannaMove;User Id=aycaa; Password=admin; integrated security=True;");
             connection.Open();
 
-            // Create a command to select the cities from the database
-            SqlCommand command = new SqlCommand("SELECT * FROM UaScoresDataFrame WHERE Continent IN (@continents)", connection);
+            //SqlCommand command = new SqlCommand();
 
-            // Add the filtered continents as a parameter to the command
-            SqlParameter continentsParameter = new SqlParameter("@continents", System.Data.SqlDbType.VarChar);
-            continentsParameter.Value = string.Join(", ", filterContinents);
-            command.Parameters.Add(continentsParameter);
+            // Create a command to select the cities from the database
+            
+            
+                SqlCommand command = new SqlCommand("SELECT * FROM UaScoresDataFrame", connection);
+            
+            if (filterContinents == null)
+            {
+                 command = new SqlCommand("SELECT * FROM UaScoresDataFrame WHERE Continent IN (@continents)", connection);
+
+                // Add the filtered continents as a parameter to the command
+                SqlParameter continentsParameter = new SqlParameter("@continents", System.Data.SqlDbType.VarChar);
+                continentsParameter.Value = string.Join(", ", filterContinents);
+                command.Parameters.Add(continentsParameter);
+            }
+
+           
 
             // Execute the command and read the results
             SqlDataReader reader = command.ExecuteReader();

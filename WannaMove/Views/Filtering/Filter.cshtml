@@ -17,7 +17,7 @@
     <!--  Search Box -->
     <div>
         <input type="text" class="text-sm" id="Input-1" onkeyup="myFunction()" placeholder="Search for location.." title="Country" style=" display:inline">
-        <input type="button" onclick="location.href='/CriteriaSelection/SelectCriteria';" value="Continue" class="btn btn-info btn-sm">
+        <input type="button"  onclick="emptyCheck()" value="Continue" class="btn btn-info btn-sm">
     </div>
     <br />
     <!--  Info -->
@@ -117,32 +117,12 @@
         });
     }
 
-    //var checkboxes = document.querySelectorAll('input[type="checkbox"]')
-    //var checkedCheckboxes = [];
-    //function getValue() {
-    //    // Loop through all checkboxes
-    //    for (var i = 0; i < checkboxes.length; i++) {
-    //        // If the checkbox is checked, add its value to the array
-    //        if (checkboxes[i].checked) {
-    //            checkedCheckboxes.push(checkboxes[i].value);
-    //            alert(checkedCheckboxes);
-    //        }
-    //        // If the checkbox is unchecked, remove its value from the array
-    //        else {
-    //            var index = checkedCheckboxes.indexOf(checkboxes[i].value);
-    //            if (index > -1) {
-    //                checkedCheckboxes.splice(index, 1);
-    //                alert(checkedCheckboxes);
-
-    //            }
-    //        }
-    //        sessionStorage.setItem('filteredContinents', JSON.stringify(checkedCheckboxes));
-    //    }
-
-    //    // Log the checked checkboxes array to the console
-    //    console.log(checkedCheckboxes);
-
-    //}
+    function emptyCheck(){
+        if(values[0] == null){
+            sessionStorage.setItem('filteredContinents', null);
+        }
+        window.location.href = 'https://localhost:44359/CriteriaSelection/SelectCriteria';
+    }
 
 
 

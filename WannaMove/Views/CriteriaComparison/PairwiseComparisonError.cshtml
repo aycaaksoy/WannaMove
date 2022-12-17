@@ -1,4 +1,6 @@
 ﻿@{
+
+    ViewData["Title"] = "PairwiseComparisonError";
     Layout = "~/Views/Shared/_OnePageLayout.cshtml";
 }
 
@@ -11,7 +13,6 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-    <!-- ERROR VİEW -->
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -437,7 +438,7 @@
             console.log(value);
         }
         var SelectedCriteria = JSON.parse(sessionStorage.getItem('SelectedCriteria'));
-        var filterContinents = JSON.parse(sessionStorage.getItem('filterContinents'));
+        var filteredContinents = JSON.parse(sessionStorage.getItem('filteredContinents'));
 
         function getValue() {
             // Create an empty array to store the values
@@ -459,14 +460,20 @@
             // Use the $.ajax method to send the arrays to the controller
             $.ajax({
                 type: "POST",
-                url: "/CriteriaComparison/CalculateAhp",
+                url: "/CriteriaComparison/CalculateAhp2",
                 data: {
                     SelectedCriteria: SelectedCriteria,
-                    filterContinents: filterContinents,
+                    filteredContinents: filteredContinents,
                     ratings: ratings
                 },
                 success: function (response) {
-                    alert("success");
+                    console.log(response);
+                    if (response == null) {
+                        window.location.href = 'https://localhost:44359/CriteriaComparison/PairwiseComparisonError';
+                    } else {
+                        window.location.href = 'https://localhost:44359/CriteriaComparison/Result?id=' + response;
+                    }
+
                 }
             });
         }

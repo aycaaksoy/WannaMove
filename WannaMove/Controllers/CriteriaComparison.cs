@@ -26,16 +26,35 @@ namespace WannaMove.Controllers
         {
             return View();
         }
-       
-        public IActionResult Result(string[] SelectedCriteria, string[] filteredContinents, string[] Ratings)
+        [HttpPost]
+        public JsonResult CalculateAhp2(string[] SelectedCriteria, string[] filteredContinents, string[] Ratings)
+        {
+            string[] selectedCriteria = SelectedCriteria;
+            string[] filterContinents = filteredContinents;
+            string[] ratings = Ratings;
+            List<string> res = new List<string>();
+            res = CalculateAhp(selectedCriteria, filterContinents, ratings);
+
+            if (res == null)
+            {
+                return Json(null);
+            }
+            else
+            {
+                return Json(res);
+            }
+            
+        }
+
+        public List<string> CalculateAhp(string[] kriterler, string[] kitalar, string[] reytingler)
         {
             //model ekledik?
             var c = _context.UaScoresDataFrame.ToList();
             // Manipulate the arrays here
 
-            string[] selectedCriteria = SelectedCriteria;
-            string[] filterContinents = filteredContinents;
-            string[] ratings = Ratings;
+            string[] selectedCriteria = kriterler;
+            string[] filterContinents = kitalar;
+            string[] ratings = reytingler;
             //0-1, 0-2 , 0-3 , 1-2 , 1-3 , 2-3
             double[] doubleRatings = Array.ConvertAll(ratings, double.Parse);
 
@@ -85,7 +104,7 @@ namespace WannaMove.Controllers
 
             // Add the filtered continents as a parameter to the command
             SqlParameter continentsParameter = new SqlParameter("@continents", System.Data.SqlDbType.VarChar);
-            continentsParameter.Value = string.Join(", ", filteredContinents);
+            continentsParameter.Value = string.Join(", ", filterContinents);
             command.Parameters.Add(continentsParameter);
 
             // Execute the command and read the results
@@ -113,13 +132,14 @@ namespace WannaMove.Controllers
             reader.Close();
             connection.Close();
 
-
+            
+            List<string> topCities=null;
 
             // Check if pairwise comparison is consistent
             bool isConsistent = IsPairwiseComparisonConsistent(createPWComparisonMatrix(pairwiseComparisonScores));
             if (!isConsistent)
             {
-                return View("PairwiseComparisonError");
+                return topCities;
             }
             else
             {
@@ -139,9 +159,9 @@ namespace WannaMove.Controllers
                 Dictionary<string, double> cityAhpScores = CalculateCityAhpScores(criteriaWeights, filteredCityScores);
 
                 // Select top 3 cities
-                List<string> topCities = SelectTopCities(cityAhpScores);
+                topCities = SelectTopCities(cityAhpScores);
 
-                return View(topCities);
+                return topCities;
             }
 
 

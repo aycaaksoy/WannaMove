@@ -5,17 +5,203 @@
     Layout = "~/Views/Shared/_OnePageLayout.cshtml";
 }
 
-<h1>Details</h1>
 
-<tr class='clickable-row' data-href='#link'>
-    <td>
-        @Model.CityId
-    </td>
-    <td>
-        @Model.Continent
-    </td>
-    <td>
-        @Model.Country
-    </td>
-</tr>
+@{
+    ViewData["Title"] = "CityProfile";
+    Layout = "~/Views/Shared/_OnePageLayout.cshtml";
+}
 
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>@Model.CityName</h2>
+            <p></p>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-6 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+                <img src="https://i.hizliresim.com/7nv6a28.jpg" class="img-fluid" alt="">
+            </div>
+
+            <div class="col-lg-6 pt-3 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+                <h3>About The City</h3>
+                <p class="fst-italic">
+                    City Discription
+                </p>
+                <ul>
+                    <li><i class="bx bx-check-double"></i> City Population: </li>
+                    <li><i class="bx bx-check-double"></i> Country: @Model.Country </li>
+                    <li><i class="bx bx-check-double"></i> Continent: @Model.Continent </li>
+
+                </ul>
+
+            </div>
+           
+            <br />
+            <br />
+            <br />
+            
+        </div>
+        <div class="row icon-boxes">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Housing</a></h4>
+                    <h2>@Math.Round(Model.Housing, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Average of small, medium and large apartment rent prices for a city ranked among other cities.</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Cost of living</a></h4>
+                    <h2>@Math.Round(Model.CostofLiving, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Ranking a city's average broadband internet connection, movie ticket, monthly fitness club membership, monthly public transportation and lunch prices with other cities.</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Startups</a></h4>
+                    <h2>@Math.Round(@Model.Startups, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>This criterion includes the startup scene index, venture capital index and the total startup funding in the last 12 months.</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Travel Connectivity</a></h4>
+                    <h2>@Math.Round(@Model.TravelConnectivity, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Ranking a city’s airport hub and intercity train connectivity index scores with other cities.</a></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="row icon-boxes">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Commute</a></h4>
+                    <h2>@Math.Round(Model.Commute, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Index score of traffic.</a></p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Business Freedom</a></h4>
+                    <h2>@Math.Round(@Model.BusinessFreedom, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Consists of the business freedom index, freedom from corruption index and the time required to start a business in days.</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Safety</a></h4>
+                    <h2>@Math.Round(@Model.Safety, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Ranking a city’s crime rate index score and gun deaths per 100k residents/year.</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Healthcare</a></h4>
+                    <h2>@Math.Round(@Model.Healthcare, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description">
+                        <a>
+                            "Consists of healthcare quality index score, healthcare expenditure index score and life expectancy.
+                            "
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="row icon-boxes">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Education</a></h4>
+                    <h2>@Math.Round(@Model.Education, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Education index score combines the university quality index score with high school ranking (based on PISA test) and the number of IB schools.</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Environmental Quality</a></h4>
+                    <h2>@Math.Round(@Model.EnvironmentalQuality, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>This criterion includes air quality, drinking water quality and the cleanliness index scores.</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Economy</a></h4>
+                    <h2>@Math.Round(@Model.Economy, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Index of GDP growth rate and GDP per capita.</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Taxation</a></h4>
+                    <h2>@Math.Round(Model.Taxation, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Ranking based on taxes.</a></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="row icon-boxes">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Internet Access</a></h4>
+                    <h2>@Math.Round(@Model.InternetAccess, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Index of download and upload speed.</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Leisure & Culture</a></h4>
+                    <h2>@Math.Round(@Model.LeisureCulture, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Contains museums, historical sites and sports venues index scores.</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Tolerance</a></h4>
+                    <h2>@Math.Round(@Model.Tolerance, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>Ranking a city’s LGBTQ equality, freedom and tolerance towards minorities index scores.</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-stack-line"></i></div>
+                    <h4 class="title"><a href="">Outdoors</a></h4>
+                    <h2>@Math.Round(@Model.Outdoors, 2, MidpointRounding.AwayFromZero)</h2>
+                    <p class="description"><a>This criterion contains the number of hills and mountains as well as the water access index score.</a></p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</section><!-- End About Section -->

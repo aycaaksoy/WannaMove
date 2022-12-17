@@ -1,20 +1,249 @@
 ﻿@model Dictionary<string, double>
-
 @{
     Layout = "~/Views/Shared/_OnePageLayout.cshtml";
 }
+@{
+    var second = Model.ElementAt(1);
+    var third = Model.ElementAt(2);
+    var forth = Model.ElementAt(3);
+    var fifth = Model.ElementAt(4);
+    var sixth = Model.ElementAt(5);
+    var seventh = Model.ElementAt(6);
+    var eight = Model.ElementAt(7);
+    var nineth = Model.ElementAt(8);
+    var tenth = Model.ElementAt(9);
+}
+<!doctype html>
+<html>
+<div class="row justify-content-center">
+    <div class="col-xl-7 col-lg-9 text-center">
+        <p></p>
+        <b></b>
+        <p></p>
+        <h1>Here Are Your Best Options to Relocate</h1>
 
-<h1>Result</h1>
+    </div>
+</div>
+<body className='snippet-body'>
+    <div class="container mt-5 mb-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-10">
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                    <div class="col-md-6 mt-1">
+                        <h5>@Model.Keys.First()</h5>
 
-<ul>@*
-    @foreach (var item in Model)
-    {
-        <li>@item.Key</li>
-        <li>@item.Value</li>
-    }*@
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 3 Name</span><span class="dot"></span> &nbsp <span>Criteria 3 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 4 Name</span><span class="dot"></span> &nbsp <span>Criteria 4 Point</span><span class="dot"></span><br /></div>
 
-    <li>@Model.Keys.First()</li>
-    <li>@Model.Values.First()</li>
-</ul>
 
-<h1>CRRRR</h1>
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">City AHP Score</h4>
+                        </div>
+                        <h6 class="text-success">@Model.Values.First()</h6>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                    </div>
+                </div>
+                <br />
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                    <div class="col-md-6 mt-1">
+                        <h5>@second.Key</h5>
+
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 3 Name</span><span class="dot"></span> &nbsp <span>Criteria 3 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 4 Name</span><span class="dot"></span> &nbsp <span>Criteria 4 Point</span><span class="dot"></span><br /></div>
+
+
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">City AHP Score</h4>
+                        </div>
+                        <h6 class="text-success">@second.Value.ToString()</h6>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                    </div>
+                </div>
+                <br />
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                    <div class="col-md-6 mt-1">
+                        <h5>@third.Key</h5>
+
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 3 Name</span><span class="dot"></span> &nbsp <span>Criteria 3 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 4 Name</span><span class="dot"></span> &nbsp <span>Criteria 4 Point</span><span class="dot"></span><br /></div>
+
+
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">City AHP Score</h4>
+                        </div>
+                        <h6 class="text-success">@third.Value.ToString()</h6>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                    </div>
+                </div>
+
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                    <div class="col-md-6 mt-1">
+                        <h5>@forth.Key</h5>
+
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 3 Name</span><span class="dot"></span> &nbsp <span>Criteria 3 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 4 Name</span><span class="dot"></span> &nbsp <span>Criteria 4 Point</span><span class="dot"></span><br /></div>
+
+
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">City AHP Score</h4>
+                        </div>
+                        <h6 class="text-success">@forth.Value.ToString()</h6>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                    </div>
+                </div>
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                    <div class="col-md-6 mt-1">
+                        <h5>@fifth.Key</h5>
+
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 3 Name</span><span class="dot"></span> &nbsp <span>Criteria 3 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 4 Name</span><span class="dot"></span> &nbsp <span>Criteria 4 Point</span><span class="dot"></span><br /></div>
+
+
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">City AHP Score</h4>
+                        </div>
+                        <h6 class="text-success">@fifth.Value.ToString()</h6>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                    </div>
+                </div>
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                    <div class="col-md-6 mt-1">
+                        <h5>@sixth.Key</h5>
+
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 3 Name</span><span class="dot"></span> &nbsp <span>Criteria 3 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 4 Name</span><span class="dot"></span> &nbsp <span>Criteria 4 Point</span><span class="dot"></span><br /></div>
+
+
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">City AHP Score</h4>
+                        </div>
+                        <h6 class="text-success">@sixth.Value.ToString()</h6>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                    </div>
+                </div>
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                    <div class="col-md-6 mt-1">
+                        <h5>@seventh.Key</h5>
+
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 3 Name</span><span class="dot"></span> &nbsp <span>Criteria 3 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 4 Name</span><span class="dot"></span> &nbsp <span>Criteria 4 Point</span><span class="dot"></span><br /></div>
+
+
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">City AHP Score</h4>
+                        </div>
+                        <h6 class="text-success">@seventh.Value.ToString()</h6>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                    </div>
+                </div>
+                  <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                    <div class="col-md-6 mt-1">
+                        <h5>@eight.Key</h5>
+
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 3 Name</span><span class="dot"></span> &nbsp <span>Criteria 3 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 4 Name</span><span class="dot"></span> &nbsp <span>Criteria 4 Point</span><span class="dot"></span><br /></div>
+
+
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">City AHP Score</h4>
+                        </div>
+                        <h6 class="text-success">@eight.Value.ToString()</h6>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                    </div>
+                </div>
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                    <div class="col-md-6 mt-1">
+                        <h5>@nineth.Key</h5>
+
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 3 Name</span><span class="dot"></span> &nbsp <span>Criteria 3 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 4 Name</span><span class="dot"></span> &nbsp <span>Criteria 4 Point</span><span class="dot"></span><br /></div>
+
+
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">City AHP Score</h4>
+                        </div>
+                        <h6 class="text-success">@nineth.Value.ToString()</h6>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                    </div>
+                </div>
+                <div class="row p-2 bg-white border rounded">
+                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                    <div class="col-md-6 mt-1">
+                        <h5>@tenth.Key</h5>
+
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 1 Name</span><span class="dot"></span> &nbsp <span>Criteria 1 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 2 Name</span><span class="dot"></span> &nbsp <span>Criteria 2 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 3 Name</span><span class="dot"></span> &nbsp <span>Criteria 3 Point</span><span class="dot"></span><br /></div>
+                        <div class="mt-1 mb-1 spec-1"><span>Criteria 4 Name</span><span class="dot"></span> &nbsp <span>Criteria 4 Point</span><span class="dot"></span><br /></div>
+
+
+                    </div>
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                        <div class="d-flex flex-row align-items-center">
+                            <h4 class="mr-1">City AHP Score</h4>
+                        </div>
+                        <h6 class="text-success">@tenth.Value.ToString()</h6>
+                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript' src='#'></script>
+    <script type='text/javascript' src='#'></script>
+    <script type='text/javascript' src='#'></script>
+    <script type='text/javascript'>#</script>
+    <script type='text/javascript'>
+        var myLink = document.querySelector('a[href="#"]');
+        myLink.addEventListener('click', function (e) {
+            e.preventDefault();
+        });</script>
+
+</body>
+</html>

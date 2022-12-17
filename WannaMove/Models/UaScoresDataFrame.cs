@@ -46,13 +46,16 @@ namespace WannaMove.Models
         public double Tolerance { get; set; }
         
         public double Outdoors { get; set; }
+        public double Population { get; set; }
+        public string Photo { get; set; }
+        public string Description { get; set; }
 
         public UaScoresDataFrame()
         {
 
         }
 
-        public UaScoresDataFrame(int cityId, string cityName, string country, string continent, double housing, double costofLiving, double startups, double travelConnectivity, double commute, double businessFreedom, double safety, double healthcare, double education, double environmentalQuality, double economy, double taxation, double internetAccess, double leisureCulture, double tolerance, double outdoors)
+        public UaScoresDataFrame(int cityId, string cityName, string country, string continent, double housing, double costofLiving, double startups, double travelConnectivity, double commute, double businessFreedom, double safety, double healthcare, double education, double environmentalQuality, double economy, double taxation, double internetAccess, double leisureCulture, double tolerance, double outdoors, double population, string photo, string description)
         {
             CityId = cityId;
             CityName = cityName;
@@ -74,6 +77,9 @@ namespace WannaMove.Models
             LeisureCulture = leisureCulture;
             Tolerance = tolerance;
             Outdoors = outdoors;
+            Population = population;
+            Photo = photo;
+            Description = description;
         }
 
         

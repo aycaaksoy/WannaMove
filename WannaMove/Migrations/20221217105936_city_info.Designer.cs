@@ -10,8 +10,8 @@ using WannaMove.Data;
 namespace WannaMove.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221216175629_decimalTodouble")]
-    partial class decimalTodouble
+    [Migration("20221217105936_city_info")]
+    partial class city_info
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -246,6 +246,9 @@ namespace WannaMove.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("Economy")
                         .HasColumnType("float");
 
@@ -268,6 +271,12 @@ namespace WannaMove.Migrations
                         .HasColumnType("float");
 
                     b.Property<double>("Outdoors")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Population")
                         .HasColumnType("float");
 
                     b.Property<double>("Safety")

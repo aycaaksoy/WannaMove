@@ -21,19 +21,12 @@ namespace WannaMove.Controllers
             return View();
         }
 
-        [HttpGet]
+       
         public IActionResult PairwiseComparisonError()
         {
             return View();
         }
-
-        [HttpGet]
-        public IActionResult Result()
-        {
-            return RedirectToAction("PairwiseComparisonError");
-        }
-
-        [HttpPost]
+       
         public IActionResult Result(string[] SelectedCriteria, string[] filteredContinents, string[] Ratings)
         {
             //model ekledik?
@@ -124,9 +117,9 @@ namespace WannaMove.Controllers
 
             // Check if pairwise comparison is consistent
             bool isConsistent = IsPairwiseComparisonConsistent(createPWComparisonMatrix(pairwiseComparisonScores));
-            if (!isConsistent || ModelState.IsValid)
+            if (!isConsistent)
             {
-                return View("Views/CriteriaComparison/PairwiseComparisonError.cshtml");
+                return View("PairwiseComparisonError");
             }
             else
             {

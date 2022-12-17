@@ -244,6 +244,9 @@ namespace WannaMove.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("Economy")
                         .HasColumnType("float");
 
@@ -266,6 +269,12 @@ namespace WannaMove.Migrations
                         .HasColumnType("float");
 
                     b.Property<double>("Outdoors")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Population")
                         .HasColumnType("float");
 
                     b.Property<double>("Safety")

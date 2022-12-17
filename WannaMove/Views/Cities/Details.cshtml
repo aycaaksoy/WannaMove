@@ -6,11 +6,6 @@
 }
 
 
-@{
-    ViewData["Title"] = "CityProfile";
-    Layout = "~/Views/Shared/_OnePageLayout.cshtml";
-}
-
 <section id="about" class="about">
     <div class="container" data-aos="fade-up">
 
@@ -21,28 +16,26 @@
         <div class="row">
 
             <div class="col-lg-6 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
-                <img src="https://i.hizliresim.com/7nv6a28.jpg" class="img-fluid" alt="">
+                <img src="@Model.Photo" class="img-fluid" alt="">
             </div>
 
             <div class="col-lg-6 pt-3 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
                 <h3>About The City</h3>
                 <p class="fst-italic">
-                    City Discription
+                    @Model.Description
                 </p>
                 <ul>
-                    <li><i class="bx bx-check-double"></i> City Population: </li>
+                    <li><i class="bx bx-check-double"></i> City Population: @Model.Population </li>
                     <li><i class="bx bx-check-double"></i> Country: @Model.Country </li>
                     <li><i class="bx bx-check-double"></i> Continent: @Model.Continent </li>
 
                 </ul>
 
-            </div>
-           
-            <br />
-            <br />
-            <br />
-            
+            </div>    
         </div>
+        <br />
+        <br />
+        <br />
         <div class="row icon-boxes">
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
                 <div class="icon-box">
@@ -199,9 +192,6 @@
                     <p class="description"><a>This criterion contains the number of hills and mountains as well as the water access index score.</a></p>
                 </div>
             </div>
-
         </div>
-
-
     </div>
 </section><!-- End About Section -->

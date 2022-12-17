@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WannaMove.Migrations
 {
-    public partial class decimalTodouble : Migration
+    public partial class city_info : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,7 +70,10 @@ namespace WannaMove.Migrations
                     InternetAccess = table.Column<double>(type: "float", nullable: false),
                     LeisureCulture = table.Column<double>(type: "float", nullable: false),
                     Tolerance = table.Column<double>(type: "float", nullable: false),
-                    Outdoors = table.Column<double>(type: "float", nullable: false)
+                    Outdoors = table.Column<double>(type: "float", nullable: false),
+                    Population = table.Column<double>(type: "float", nullable: false),
+                    Photo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

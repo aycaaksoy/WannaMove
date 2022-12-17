@@ -1,0 +1,21 @@
+﻿@using WannaMove.Models
+@model UaScoresDataFrame
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_OnePageLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<tr class='clickable-row' data-href='#link'>
+    <td>
+        @Model.CityId
+    </td>
+    <td>
+        @Model.Continent
+    </td>
+    <td>
+        @Model.Country
+    </td>
+</tr>
+

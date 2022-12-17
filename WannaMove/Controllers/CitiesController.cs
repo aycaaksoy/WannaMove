@@ -18,5 +18,16 @@ namespace WannaMove.Controllers
             var c = _context.UaScoresDataFrame.ToList();
             return View(c);
         }
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var item = _context.UaScoresDataFrame.Find(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            return View(item);
+        }
     }
 }

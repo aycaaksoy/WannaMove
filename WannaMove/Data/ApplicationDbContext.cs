@@ -9,6 +9,8 @@ namespace WannaMove.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        
+
         public ApplicationDbContext()
         {
         }

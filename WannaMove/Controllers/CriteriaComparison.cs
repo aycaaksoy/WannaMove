@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using WannaMove.Data;
 
 namespace WannaMove.Controllers
@@ -11,7 +12,7 @@ namespace WannaMove.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public CriteriaComparison (ApplicationDbContext context)
+        public CriteriaComparison(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -29,7 +30,7 @@ namespace WannaMove.Controllers
         [HttpGet]
         public IActionResult Result()
         {
-            return View();
+            return RedirectToAction("PairwiseComparisonError");
         }
 
         [HttpPost]
@@ -123,9 +124,9 @@ namespace WannaMove.Controllers
 
             // Check if pairwise comparison is consistent
             bool isConsistent = IsPairwiseComparisonConsistent(createPWComparisonMatrix(pairwiseComparisonScores));
-            if (!isConsistent)
+            if (!isConsistent || ModelState.IsValid)
             {
-                return View();
+                return View("Views/CriteriaComparison/PairwiseComparisonError.cshtml");
             }
             else
             {
@@ -150,7 +151,7 @@ namespace WannaMove.Controllers
                 return View(topCities);
             }
 
-                
+
 
         }
         //

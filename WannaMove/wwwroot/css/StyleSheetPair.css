@@ -1,17 +1,17 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
-* {
+/** {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
+*/
 html, body {
-    display: grid;
+    /*display: grid;*/
     height: 100%;
     text-align: center;
-    place-items: center;
+    /*place-items: center;*/
     background: #ffffff;
 }
 
@@ -64,13 +64,13 @@ html, body {
             border-top-right-radius: 50%;
         }
 
-.field {
+/*.field {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     position: relative;
-}
+}*/
 
     .field .value {
         position: absolute;
@@ -152,9 +152,9 @@ input[type=range]::-webkit-slider-runnable-track {
     border: none;
     background: transparent;
 }
-
 datalist {
-    display: flex;
+ 
+   display: flex;
     width: 100%;
     justify-content: space-between;
     margin-top: -13px;
@@ -171,7 +171,7 @@ datalist {
     border-radius: 10px;
     padding: 30px;
     background-color: #fff;
-    width: 800px;
+    width: 1200px;
     box-shadow: 0 12px 35px rgba(0,0,0,0.1); 
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;

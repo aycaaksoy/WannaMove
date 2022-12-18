@@ -4,9 +4,43 @@
 }
 
 <section id="team" class="team">
-    <div class="container" data-aos="fade-up">
+    <div class="container">
 
-        <iframe title="WannaMove1 - Kopya" width="1400" height="800" src="https://app.powerbi.com/reportEmbed?reportId=2362a7fd-c063-4835-ab60-96418a74a8d1&autoAuth=true&ctid=7d6722ae-0c2d-4abf-8151-90e590a56e3b" frameborder="0" allowFullScreen="true"></iframe>
+        <center><p><button onclick="db1()" class="btn btn-dark">Summary Dashboards</button>     <button onclick="db2()" class="btn btn-dark">Radar Charts</button>    <button onclick="db3()" class="btn btn-dark">Breakdown Dashboards</button></p></center>
+
+        <br>
+
+        <iframe title="WannaMove1" id="d1" width="1400" height="700" src="https://app.powerbi.com/reportEmbed?reportId=48fab45a-9d0a-4b64-a00d-365798f39e9f&autoAuth=true&ctid=7d6722ae-0c2d-4abf-8151-90e590a56e3b" frameborder="0" allowFullScreen="true"></iframe>
+        <iframe title="WannaMove2" id="d2" width="1400" height="700" style="display:none" src="https://app.powerbi.com/reportEmbed?reportId=b8b66280-3363-42bd-96b2-e04ec55d7acb&autoAuth=true&ctid=7d6722ae-0c2d-4abf-8151-90e590a56e3b" frameborder="0" allowFullScreen="true"></iframe>
+        <iframe title="WannaMove3" id="d3" width="1400" height="700" style="display:none" src="https://app.powerbi.com/reportEmbed?reportId=1070d840-ecba-48ce-83bc-bb56ada8dced&autoAuth=true&ctid=7d6722ae-0c2d-4abf-8151-90e590a56e3b" frameborder="0" allowFullScreen="true"></iframe>
 
     </div>
 </section>
+
+<script>
+
+    function db1() {
+
+        document.getElementById("d1").style.display = ''
+        document.getElementById("d2").style.display = 'none'
+        document.getElementById("d3").style.display = 'none'
+
+    }
+
+    function db2() {
+
+        document.getElementById("d1").style.display = 'none'
+        document.getElementById("d2").style.display = ''
+        document.getElementById("d3").style.display = 'none'
+
+    }
+
+    function db3() {
+
+        document.getElementById("d1").style.display = 'none'
+        document.getElementById("d2").style.display = 'none'
+        document.getElementById("d3").style.display = ''
+
+    }
+
+</script>

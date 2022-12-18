@@ -55,9 +55,17 @@
                     <li><a class="nav-link scrollto active" href="/Home/Index">Home</a></li>
                     <li><a class="nav-link scrollto" href="#start">About</a></li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                    <li><a class="nav-link scrollto" href="/Cities/Info">Dataset</a></li>
-                    <li><a class="nav-link scrollto" href="/Dashboards/Dashboards">Dashboards</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dataset
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/Cities/Info">Cities</a></li>
+                            <li><a class="dropdown-item" href="/Dashboards/Dashboards">Dashboards</a></li>
+                        </ul>
+                    </li>
                     <li><a class="getstarted scrollto" href="/Filtering/Filter">Get Started</a></li>
+
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

@@ -111,9 +111,9 @@ namespace WannaMove.Controllers
             // Create a command to select the cities from the database
             
             
-                SqlCommand command = new SqlCommand("SELECT * FROM UaScoresDataFrame", connection);
+            SqlCommand command = new SqlCommand("SELECT * FROM UaScoresDataFrame", connection);
             
-            if (filterContinents != null)
+            if (filterContinents[0] != null)
             {
                  //command = new SqlCommand("SELECT * FROM UaScoresDataFrame WHERE Continent IN (@continents)", connection);
                 string sql1 = "SELECT * FROM UaScoresDataFrame WHERE " ;
@@ -132,10 +132,7 @@ namespace WannaMove.Controllers
 
                 command = new SqlCommand(sql1 + sql2, connection);
 
-                //// Add the filtered continents as a parameter to the command
-                //SqlParameter continentsParameter = new SqlParameter("@continents", System.Data.SqlDbType.VarChar);
-                //continentsParameter.Value = string.Join(", ", filterContinents);
-                //command.Parameters.Add(continentsParameter);
+                
             }
 
            

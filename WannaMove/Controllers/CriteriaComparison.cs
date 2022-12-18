@@ -55,9 +55,9 @@ namespace WannaMove.Controllers
 
         public Dictionary<string, double> CalculateAhp(string[] kriterler, string[] kitalar, string[] reytingler)
         {
-            //model ekledik?
+            
             var c = _context.UaScoresDataFrame.ToList();
-            // Manipulate the arrays here
+            
 
             string[] selectedCriteria = kriterler;
             string[] filterContinents = kitalar;
@@ -103,17 +103,15 @@ namespace WannaMove.Controllers
             Dictionary<string, Dictionary<string, double>> filteredCityScores = new Dictionary<string, Dictionary<string, double>>();
 
             // Connect to the database
-            SqlConnection connection = new SqlConnection("Server=DESKTOP-60DI5A8;Database=DbWannaMove;User Id=aycaa; Password=admin; integrated security=True;");
+            SqlConnection connection = new SqlConnection("Server=DESKTOP-8NCNVT7\\SQLEXPRESS;Database=DbWannaMove;Trusted_Connection=True;");
             connection.Open();
+                  
 
-            //SqlCommand command = new SqlCommand();
+            // Create a command to select the cities from the database               
+            SqlCommand command = new SqlCommand("SELECT * FROM UaScoresDataFrame", connection);
 
-            // Create a command to select the cities from the database
             
-            
-                SqlCommand command = new SqlCommand("SELECT * FROM UaScoresDataFrame", connection);
-            
-            if (filterContinents != null)
+            if (filterContinents[0]!=null)
             {
                  //command = new SqlCommand("SELECT * FROM UaScoresDataFrame WHERE Continent IN (@continents)", connection);
                 string sql1 = "SELECT * FROM UaScoresDataFrame WHERE " ;
@@ -131,11 +129,6 @@ namespace WannaMove.Controllers
                 }
 
                 command = new SqlCommand(sql1 + sql2, connection);
-
-                //// Add the filtered continents as a parameter to the command
-                //SqlParameter continentsParameter = new SqlParameter("@continents", System.Data.SqlDbType.VarChar);
-                //continentsParameter.Value = string.Join(", ", filterContinents);
-                //command.Parameters.Add(continentsParameter);
             }
 
            

@@ -4,9 +4,43 @@
 }
 
 <section id="team" class="team">
-    <div class="container" data-aos="fade-up">
+    <div class="container">
 
-        <iframe title="WannaMove1 - Kopya" width="1400" height="800" src="https://app.powerbi.com/reportEmbed?reportId=2362a7fd-c063-4835-ab60-96418a74a8d1&autoAuth=true&ctid=7d6722ae-0c2d-4abf-8151-90e590a56e3b" frameborder="0" allowFullScreen="true"></iframe>
+        <center><p><button onclick="db1()" class="btn btn-dark">Summary Dashboards</button>     <button onclick="db2()" class="btn btn-dark">Radar Charts</button>    <button onclick="db3()" class="btn btn-dark">Breakdown Dashboards</button></p></center>
 
-    </div>
+        <br>
+
+        <iframe title="WannaMove1" id="d1" width="1400" height="700" src="https://app.powerbi.com/reportEmbed?reportId=21d52c5e-44f4-423a-bc4c-c817c9df1239&autoAuth=true&ctid=7d6722ae-0c2d-4abf-8151-90e590a56e3b" frameborder="0" allowFullScreen="true"></iframe>
+        <iframe title="WannaMove2" id="d2" width="1400" height="700" style="display:none" src="https://app.powerbi.com/reportEmbed?reportId=0a085803-3f28-4db0-b8b0-d155e325f6f1&autoAuth=true&ctid=7d6722ae-0c2d-4abf-8151-90e590a56e3b" frameborder="0" allowFullScreen="true"></iframe>
+        <iframe title="WannaMove3" id="d3" width="1400" height="700" style="display:none" src="https://app.powerbi.com/reportEmbed?reportId=3a864512-6198-49ea-b1c2-5cde911edc76&autoAuth=true&ctid=7d6722ae-0c2d-4abf-8151-90e590a56e3b" frameborder="0" allowFullScreen="true"></iframe>
+
+    </div>                                                                        
 </section>
+
+<script>
+
+    function db1() {
+
+        document.getElementById("d1").style.display = ''
+        document.getElementById("d2").style.display = 'none'
+        document.getElementById("d3").style.display = 'none'
+
+    }
+
+    function db2() {
+
+        document.getElementById("d1").style.display = 'none'
+        document.getElementById("d2").style.display = ''
+        document.getElementById("d3").style.display = 'none'
+
+    }
+
+    function db3() {
+
+        document.getElementById("d1").style.display = 'none'
+        document.getElementById("d2").style.display = 'none'
+        document.getElementById("d3").style.display = ''
+
+    }
+
+</script>

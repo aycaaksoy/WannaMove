@@ -113,14 +113,29 @@ namespace WannaMove.Controllers
             
                 SqlCommand command = new SqlCommand("SELECT * FROM UaScoresDataFrame", connection);
             
-            if (filterContinents == null)
+            if (filterContinents != null)
             {
-                 command = new SqlCommand("SELECT * FROM UaScoresDataFrame WHERE Continent IN (@continents)", connection);
+                 //command = new SqlCommand("SELECT * FROM UaScoresDataFrame WHERE Continent IN (@continents)", connection);
+                string sql1 = "SELECT * FROM UaScoresDataFrame WHERE " ;
+                string sql2 = "";
 
-                // Add the filtered continents as a parameter to the command
-                SqlParameter continentsParameter = new SqlParameter("@continents", System.Data.SqlDbType.VarChar);
-                continentsParameter.Value = string.Join(", ", filterContinents);
-                command.Parameters.Add(continentsParameter);
+                for (int i = 0; i < filterContinents.Length; i++)
+                {
+
+                    if (i > 0)
+                    {
+                        sql2 += " OR ";
+                    }
+
+                    sql2 += "Continent='" + filterContinents[i] + "'";
+                }
+
+                command = new SqlCommand(sql1 + sql2, connection);
+
+                //// Add the filtered continents as a parameter to the command
+                //SqlParameter continentsParameter = new SqlParameter("@continents", System.Data.SqlDbType.VarChar);
+                //continentsParameter.Value = string.Join(", ", filterContinents);
+                //command.Parameters.Add(continentsParameter);
             }
 
            
